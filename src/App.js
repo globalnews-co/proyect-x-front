@@ -4,6 +4,10 @@ function App() {
   return (
     <div>
       <FormClientes/>
+      <div>
+Cualquier cossa
+
+      </div>
     </div>
   );
 }
