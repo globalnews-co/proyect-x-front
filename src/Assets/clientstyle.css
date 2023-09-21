@@ -7,8 +7,8 @@
     justify-content: center;
 }
 .content-list-clientes{
-   
-    margin-top:4rem;
+   position: relative;
+    top:4rem;
     padding: 2rem !important;
     background-color: #131212;
     border-radius: 10px;

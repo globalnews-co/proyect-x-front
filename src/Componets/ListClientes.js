@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import DataTable, { createTheme } from 'react-data-table-component';
+import DataTable, { createTheme }  from 'react-data-table-component';
 import Conexion from '../Service/Conexion';
 import '../Assets/clientstyle.css'
 
@@ -303,14 +303,23 @@ function ListClientes() {
     return (
         <div className='Body'>
             <div className='container content-list-clientes'>
+                <div className='row '>
+                    <div className='col-4'>
+                <h4 className='title-list-clientes'>Clientes</h4>
+                </div>
+                {/*alinear a la derecha*/}
+                <div className='col-2 position-absolute end-0'>
+                <input type="text" placeholder="Buscar" className="input-search" />
+                </div>
+                </div>
                 <DataTable
-                    title="Clientes"
                     columns={columns}
                     data={data}
                     theme="solarized"
                     pointerOnHover={true}
                     highlightOnHover={true}
-
+                    fixedHeader={true}
+                    fixedHeaderScrollHeight="600px"
                     pagination
                 />
 
