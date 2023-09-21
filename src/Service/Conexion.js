@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class Connetion {
+class Conexion {
   createCliente = async (form) => {
     try {
       const response = await axios.post(
@@ -10,3 +10,4 @@ class Connetion {
     } catch {}
   };
 }
+export default new Conexion();
