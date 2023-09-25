@@ -1,11 +1,13 @@
+import { Agenda } from "./Componets/Agenda";
 import FormClientes from "./Componets/FormClientes";
+import Hola from "./Componets/Hola";
 
 function App() {
   return (
     <div>
-      <FormClientes/>
+      <Agenda/>
       <div>
-Cualquier cossa
+
 
       </div>
     </div>

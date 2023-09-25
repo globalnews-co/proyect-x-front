@@ -1,15 +1,7 @@
 import React from "react";
 
 export default function FormClientes() {
-    enviarDatos = async ()=>{
-        const nombre = document.getElementById("nombre").value;
-        const telefono = document.getElementById('telefono').value;
-        const fuente = document.getElementById('fuente').value;
-        const nombreContacto = document.getElementById('Nombre Contacto').value;
-        const correo = document.getElementById('correo').value;
-
-
-    }
+    
   return (
     <div>
       <form>
@@ -131,7 +123,7 @@ export default function FormClientes() {
             placeholder="Ciudad"
           />
         </div>
-        <button type="submit" class="btn btn-primary" onClick={}>
+        <button type="submit" class="btn btn-primary">
           Enviar
         </button>
       </form>
