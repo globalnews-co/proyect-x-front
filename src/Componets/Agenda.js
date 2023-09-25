@@ -11,7 +11,6 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-
 export const Agenda = () => {
   const [formState, setFormState] = useState({
     inputValue: '',
@@ -34,9 +33,9 @@ export const Agenda = () => {
   };
 
   const handleHoraChange = (hora) => {
-    console.log(hora)
-    const horaformateada=hora.format("yyyy-MM-DDThh:mm")
-  setFormState({ ...formState, horaValue: horaformateada });
+    console.log(hora);
+    const horaformateada = hora.format('yyyy-MM-DDThh:mm');
+    setFormState({ ...formState, horaValue: horaformateada });
   };
 
   const handleChange = (event) => {
@@ -52,7 +51,7 @@ export const Agenda = () => {
 
   const handleChange2 = (newValue) => {
     setValue(newValue);
-  }
+  };
 
   return (
     <div>
@@ -83,65 +82,13 @@ export const Agenda = () => {
             </CardContent>
             <CardContent>
               <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                  <Form.Label>Observación</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Ingresa texto"
-                    value={formState.inputValue}
-                    onChange={handleInputChange}
-                  />
-                </Form.Group>
-
-                <Form.Group>
-                  <Form.Label>Selecciona una opción:</Form.Label>
-                  <Form.Control
-                    as="select"
-                    onChange={handleSelectChange}
-                    value={formState.selectValue}
-                  >
-                    <option value="">Seleccionar opción</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
-                  </Form.Control>
-                </Form.Group>
-
-                <Form.Group>
-                  <Form.Label>Fecha:</Form.Label>
-                  <Form.Control
-                    type="date"
-                    onChange={handleFechaChange}
-                    value={formState.fechaValue}
-                  />
-                </Form.Group>
-
-                <Form.Group>
-
-                  <Form.Label>Hora:</Form.Label>
-                  <div className="input-group">
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <TimePicker
-                        label="Hora"
-                        value={formState.horaValue}
-                        onChange={handleHoraChange}
-                        renderInput={(params) => <TextField {...params} />}
-                      />
-
-                    </LocalizationProvider>
-<p>La hora seleccionada es: {formState.horaValue}</p>
-
-                
-                  </div>
-                 
-                </Form.Group>
-
+              <Form.Label>Cliente:</Form.Label>
                 <Form.Group>
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <InputLabel id="cliente-label">Cliente</InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="cliente-label"
+                      id="cliente"
                       value={formState.age}
                       onChange={handleChange}
                     >
@@ -151,7 +98,57 @@ export const Agenda = () => {
                     </Select>
                   </FormControl>
                 </Form.Group>
+                <div style={{ marginTop: '16px' }}>
 
+
+                <Form.Label>Estado:</Form.Label>
+                  <Form.Group>
+                    <FormControl fullWidth>
+                      <InputLabel id="estado-label">ESTADO</InputLabel>
+                      <Select
+                        labelId="estado-label"
+                        id="estado"
+                        value={formState.age}
+                        onChange={handleChange}
+                      >
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Form.Group>
+                </div>
+                <Form.Group>
+                  <Form.Label>Fecha:</Form.Label>
+                  <Form.Control
+                    type="date"
+                    onChange={handleFechaChange}
+                    value={formState.fechaValue}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Hora:</Form.Label>
+                  <div className="input-group">
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <TimePicker
+                        label="Hora"
+                        value={formState.horaValue}
+                        onChange={handleHoraChange}
+                        renderInput={(params) => <TextField {...params} />}
+                      />
+                    </LocalizationProvider>
+                    <p>La hora seleccionada es: {formState.horaValue}</p>
+                  </div>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Observación</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Ingresa texto"
+                    value={formState.inputValue}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
                 <Button variant="primary" type="submit">
                   Enviar
                 </Button>
