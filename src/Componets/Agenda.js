@@ -82,7 +82,7 @@ export const Agenda = () => {
             </CardContent>
             <CardContent>
               <Form onSubmit={handleSubmit}>
-              <Form.Label>Cliente:</Form.Label>
+                <Form.Label>Cliente:</Form.Label>
                 <Form.Group>
                   <FormControl fullWidth>
                     <InputLabel id="cliente-label">Cliente</InputLabel>
@@ -101,7 +101,7 @@ export const Agenda = () => {
                 <div style={{ marginTop: '16px' }}>
 
 
-                <Form.Label>Estado:</Form.Label>
+                  <Form.Label>Estado:</Form.Label>
                   <Form.Group>
                     <FormControl fullWidth>
                       <InputLabel id="estado-label">ESTADO</InputLabel>
@@ -140,15 +140,13 @@ export const Agenda = () => {
                     <p>La hora seleccionada es: {formState.horaValue}</p>
                   </div>
                 </Form.Group>
-                <Form.Group>
-                  <Form.Label>Observación</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Ingresa texto"
-                    value={formState.inputValue}
-                    onChange={handleInputChange}
-                  />
-                </Form.Group>
+               
+
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Observación</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={formState.inputValue} onChange={handleInputChange}></textarea>
+                </div>
+
                 <Button variant="primary" type="submit">
                   Enviar
                 </Button>
