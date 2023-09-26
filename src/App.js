@@ -1,17 +1,25 @@
 import { Agenda } from "./Componets/Agenda";
 import FormClientes from "./Componets/FormClientes";
-import Hola from "./Componets/Hola";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//import Login from "./Componets/Statics/Login";
 
 function App() {
   return (
     <div>
-      <Agenda/>
-      <div>
+    <Router>
+        <Routes>
+         {/* <Route path="/" element={<Login />} />*/}
+          <Route path="/form" element={<FormClientes />} />
+         {/* <Route path="/Clientes" element={<ListClientes />} /> 
+          <Route path="/fd" element={<Inicio/>} />*/}
+          <Route path="/agenda" element={<Agenda />} />
 
-
-      </div>
+        </Routes> 
+      </Router>
     </div>
   );
 }
 
 export default App;
+
+
