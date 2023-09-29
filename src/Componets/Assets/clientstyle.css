@@ -1,0 +1,33 @@
+.Body{
+    background-image: url('./imagenes/background.jpg');
+
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+.content-list-clientes{
+   position: relative;
+    top:4rem;
+    padding: 2rem !important;
+    background-color: #131212;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.54);
+
+}
+.dark-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #666;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+.container-clients{
+    padding-left: 0.5em;
+}
+
+.dark-input:focus {
+    outline: none;
+    border-color: #00bcd4;
+}

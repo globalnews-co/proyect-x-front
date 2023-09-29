@@ -123,7 +123,7 @@ export default function FormClientes() {
             placeholder="Ciudad"
           />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" >
           Enviar
         </button>
       </form>
