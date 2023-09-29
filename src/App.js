@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Componets/Statics/Login";
 import ListClientes  from "./Componets/ListClientes";
 import Inicio from "./Componets/inicio";
-
+import { Proyeccion } from "./Componets/Proyeccion";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
          <Route path="/Clientes" element={<ListClientes />} /> 
           <Route path="/fd" element={<Inicio/>} />
           <Route path="/agenda" element={<Agenda />} />
-
+          <Route path="/Proyeccion" element={<Proyeccion />} />
         </Routes> 
       </Router>
     </div>
