@@ -29,10 +29,11 @@ class Navbar extends Component {
     return (
       <nav className='row align-items-center' style={{ padding: '0.7rem', width: '100vw' }}>
         <div className="col-4 d-flex align-items-center">
-          <i className="bi bi-list"></i> Inicio
+          <i className="bi bi-list">Inicio</i> 
         </div>
         <div className="col-4 text-center">
           {this.state.currentTime}
+          
         </div>
         <div className="col-4 text-end">
           Usuario

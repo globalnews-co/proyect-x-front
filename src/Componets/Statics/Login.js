@@ -20,7 +20,14 @@ export default function () {
             console.log("response", response);
             if (response) {
                 localStorage.setItem("token", response.token);
+                localStorage.setItem("IDdirector", response.idDirector );
+                localStorage.setItem("IDuser", response.idUser);
+                if (response.idDirector === null) {
+                    window.location.href = "/addProfile";
+                }
+                else{
                 window.location.href = "/fd";
+                }
             }
             else {
                 alert("Usuario o contraseña incorrecta")

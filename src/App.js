@@ -5,18 +5,23 @@ import Login from "./Componets/Statics/Login";
 import ListClientes  from "./Componets/ListClientes";
 import Inicio from "./Componets/inicio";
 import { Proyeccion } from "./Componets/Proyeccion";
+import AddProfile from "./Componets/Statics/AddProfile";
 
 function App() {
+  const getidDir = localStorage.getItem("IDdirector");
+  console.log(typeof getidDir);
   return (
     <div>
     <Router>
         <Routes>
          <Route path="/" element={<Login />} />
           <Route path="/form" element={<FormClientes />} />
-         <Route path="/Clientes" element={<ListClientes />} /> 
+          <Route path="/Clientes" element={<ListClientes />} /> 
           <Route path="/fd" element={<Inicio/>} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/Proyeccion" element={<Proyeccion />} />
+          {getidDir === 'null' ? <Route path="/addProfile" element={<AddProfile/>} /> : null}
+       
         </Routes> 
       </Router>
     </div>
