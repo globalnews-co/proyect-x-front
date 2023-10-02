@@ -1,59 +1,80 @@
-import React from 'react'
+import React, {useState} from 'react';
 import Navbar from './Statics/Navbar';
+import OffCanvasProyeccion from './Statics/OffCanvasProyeccion';
 import '../Assets/sb-admin-2.css'
 
 export const Proyeccion = () => {
-  return (
-<div className='prueba'>
-    <Navbar/>
-      <div class="container">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Proyección</h1>
-                            </div>
-                            <form class="user">
-                                <div class="p-3 d-flex flex-column justify-content-start">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <select type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="">
+    const [isOffCanvasProyeccionVisible, setOffCanvasProyeccionVisible] = useState(false);
 
-                                            </select>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name"/>
-                                    </div>
+    const handleOffCanvasClick = () => {
+        setOffCanvasProyeccionVisible(!isOffCanvasProyeccionVisible);
+    };
+    return (
+        <div className='prueba'>
+            <Navbar />
+            
+            <div className='container content-list-clientes'>
+                <div className='row container-clients' style={{ justifyContent: "space-between" }}>
+                    <div className='col-4'>
+                        <h4 className='title-list-clientes'>Directores</h4>
+                    </div>
+                    {/*alinear a la derecha*/}
+                    <div className='col-8 col-sm-6'>
+                        <div className='row'>
+                            <div className='col-6'>
+                                <div className='row'>
                                 </div>
-                                <div class="form-group d-flex flex-column">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address"/>
-                                </div>
-                                <div class="form-group d-flex flex-column">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password"/>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password"/>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Registrar
-                                </a>
-                            </form>
-                                <hr/>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Director</th>
+                            <th scope="col">Ubicación</th>
+                            <th scope="col" onClick={handleOffCanvasClick}>Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Director 1</td>
+                            <td>Bogotá</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Director 2</td>
+                            <td>Bogotá</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Director 3</td>
+                            <td>Medellín</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Director 4</td>
+                            <td>Bogotá</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <OffCanvasProyeccion
+                show={isOffCanvasVisible}
+                handleClose={handleOffCanvasClick}
+                content={<div>Tu contenido OffCanvas aquí</div>}
+            />
         </div>
-    </div>
-</div>
-  );
+    );
 }
