@@ -71,7 +71,7 @@ export const Proyeccion = () => {
                 </table>
             </div>
             <OffCanvasProyeccion
-                show={isOffCanvasVisible}
+                show={isOffCanvasProyeccionVisible}
                 handleClose={handleOffCanvasClick}
                 content={<div>Tu contenido OffCanvas aquí</div>}
             />

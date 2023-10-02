@@ -13,4 +13,4 @@ const OffCanvasProyeccion = ({ show, handleClose, content }) => {
     );
 };
 
-export default OffCanvas;
+export default OffCanvasProyeccion;
