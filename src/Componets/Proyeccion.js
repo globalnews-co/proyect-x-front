@@ -10,13 +10,12 @@ export const Proyeccion = () => {
         setOffCanvasProyeccionVisible(!isOffCanvasProyeccionVisible);
     };
     return (
-        <div className='prueba'>
+        <div className='container'>
             <Navbar />
-            
-            <div className='container content-list-clientes'>
-                <div className='row container-clients' style={{ justifyContent: "space-between" }}>
+            <div className='container'>
+                <div className='row' style={{ justifyContent: "space-between" }}>
                     <div className='col-4'>
-                        <h4 className='title-list-clientes'>Directores</h4>
+                        <h4 className='title-directores'>Directores</h4>
                     </div>
                     {/*alinear a la derecha*/}
                     <div className='col-8 col-sm-6'>
@@ -73,7 +72,45 @@ export const Proyeccion = () => {
             <OffCanvasProyeccion
                 show={isOffCanvasProyeccionVisible}
                 handleClose={handleOffCanvasClick}
-                content={<div>Tu contenido OffCanvas aquí</div>}
+                content={
+                    <div>Contenido canvas
+                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                            Enlace con href
+                        </a>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                            Botón con data-bs-target
+                        </button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                            <div class="row">
+                            <div class="col">
+                                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre" />
+                            </div>
+                            <div class="col">
+                                <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Apellido" />
+                            </div>
+                        </div>
+                                <div class="dropdown mt-3">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                        Botón dropdown
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#">Acción</a></li>
+                                        <li><a class="dropdown-item" href="#">Otra acción</a></li>
+                                        <li><a class="dropdown-item" href="#">Algo más aquí</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                }
             />
         </div>
     );
