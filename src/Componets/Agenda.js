@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import Navbar from './Statics/Navbar';
 
 export const Agenda = () => {
   const [formState, setFormState] = useState({
@@ -54,27 +55,23 @@ export const Agenda = () => {
   };
 
   return (
-    <div>
+    <div className='Body'>
+      <Navbar />
+      <div style={{marginTop:'4rem', display:'flex'}}>
       <Grid
         container
         direction="row-reverse"
         justifyContent="center"
         alignItems="center"
-        spacing={2}
+        spacing={4} 
+
       >
-        <Grid item xs={4} sm={12} md={12} xl={12} lg={12}>
-          <Card>
-            <CardHeader></CardHeader>
-            <CardContent>
-              <Typography variant="h5" color="primary">
-                Agenda Comercial
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+
+
+
+        
         <Grid item xs={4} sm={4} md={4} xl={4} lg={4}>
           <Card>
-            <CardHeader></CardHeader>
             <CardContent>
               <Typography variant="h5" color="primary">
                 AGREGAR AGENDA
@@ -155,6 +152,7 @@ export const Agenda = () => {
           </Card>
         </Grid>
       </Grid>
+      </div>
     </div>
   );
 };
