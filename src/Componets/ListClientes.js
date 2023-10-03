@@ -65,38 +65,40 @@ function ListClientes() {
   const columns = [
     {
       name: 'Nombre Empresa',
-      selector: 'empresaCliente',
+      selector: row => row.empresaCliente,
       sortable: true,
     },
     {
       name: 'Nombre Contacto',
-      selector: 'nombreContacto',
+      selector: row => row.nombreContacto,
       sortable: true,
     },
     {
       name: 'Ciudad',
-      selector: 'ciudadCliente',
+      selector: row => row.ciudadCliente,
       sortable: true,
     },
 
     {
       name: 'Telefono',
-      selector: 'telefono1',
+      selector: row => row.telefono1,
       sortable: true,
     },
     {
       name: 'Director',
-      selector: 'idDirector',
+      selector: row =>
+      <button>
+      row.director</button>,
       sortable: true,
     },
     {
       name: 'Sector',
-      selector: 'idSector',
+      selector: row => row.idSector,
       sortable: true,
     },
     {
       name: 'Probabilidad',
-      selector: 'probabilidad',
+      selector: row => row.probabilidad,
       sortable: true,
     }
 
