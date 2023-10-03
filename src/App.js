@@ -21,6 +21,7 @@ function App() {
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/Proyeccion" element={<Proyeccion />} />
           {getidDir === 'null' ? <Route path="/addProfile" element={<AddProfile/>} /> : null}
+          <Route path="/addProfile" element={<AddProfile/>} /> 
        
         </Routes> 
       </Router>
