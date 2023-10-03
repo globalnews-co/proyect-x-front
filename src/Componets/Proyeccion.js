@@ -33,6 +33,7 @@ export const Proyeccion = () => {
                             <th scope="col">#</th>
                             <th scope="col">Director</th>
                             <th scope="col">Ubicación</th>
+                            <th scope="col">Facturado</th>
                             <th scope="col" onClick={handleOffCanvasClick}>Handle</th>
                         </tr>
                     </thead>
@@ -41,30 +42,34 @@ export const Proyeccion = () => {
                             <th scope="row">1</th>
                             <td>Director 1</td>
                             <td>Bogotá</td>
-                            <td>@mdo</td>
+                            <td>$ 123</td>
+                            <td onClick={handleOffCanvasClick}>@mdo</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Director 2</td>
                             <td>Bogotá</td>
-                            <td>@fat</td>
+                            <td>$ 123</td>
+                            <td onClick={handleOffCanvasClick}>@fat</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Director 3</td>
                             <td>Medellín</td>
-                            <td>@fat</td>
+                            <td>$ 12113</td>
+                            <td onClick={handleOffCanvasClick}>@fat</td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
                             <td>Director 4</td>
                             <td>Bogotá</td>
-                            <td>@fat</td>
+                            <td>$ 12113</td>
+                            <td onClick={handleOffCanvasClick}>@fat</td>
                         </tr>
                         <tr>
-                            <th scope="row">5</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
+                            <th scope="row"></th>
+                            <td colspan="2">TOTALES</td>
+                            <td>$ 100.000.00</td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,41 +79,7 @@ export const Proyeccion = () => {
                 handleClose={handleOffCanvasClick}
                 content={
                     <div>Contenido canvas
-                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                            Enlace con href
-                        </a>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                            Botón con data-bs-target
-                        </button>
-
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                            <div class="row">
-                            <div class="col">
-                                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre" />
-                            </div>
-                            <div class="col">
-                                <label for="exampleFormControlInput1" class="form-label">Apellido</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Apellido" />
-                            </div>
-                        </div>
-                                <div class="dropdown mt-3">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                                        Botón dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="#">Acción</a></li>
-                                        <li><a class="dropdown-item" href="#">Otra acción</a></li>
-                                        <li><a class="dropdown-item" href="#">Algo más aquí</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    
                 </div>
                 }
             />
