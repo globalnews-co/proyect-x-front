@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Componets/Statics/Login";
 import ListClientes  from "./Componets/ListClientes";
 import Inicio from "./Componets/inicio";
-import { Proyeccion } from "./Componets/Proyeccion";
-import AddProfile from "./Componets/Statics/AddProfile";
+import  Proyeccion  from "./Componets/Proyeccion";
 
 function App() {
   const getidDir = localStorage.getItem("IDdirector");
