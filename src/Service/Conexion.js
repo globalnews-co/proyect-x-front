@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = "http://localhost:5000/api/";
-
+const token = localStorage.getItem("token");
 
 class Conexion {
   //Metodo para loguearse
@@ -25,6 +25,27 @@ class Conexion {
       );
     } catch { }
   };
+
+  //Metodo para obtener los clientes
+  getClientes = async () => {
+    try {
+      const response = await axios.get(
+        url + "Cliente"  , {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    }
+    catch {
+      return null;
+    }
+  }
+        
+
+
+
   completeProfile = async (form) => {
     try {
       const response = await axios.post(url + "auth/registerDirector",
