@@ -39,7 +39,7 @@ class Conexion {
       return response.data;
     }
     catch {
-      return null;
+      return [];
     }
   }
         
