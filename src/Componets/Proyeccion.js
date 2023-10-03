@@ -1,88 +1,366 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react'
+import DataTable, { createTheme } from 'react-data-table-component';
+import Conexion from '../Service/Conexion';
+import '../Assets/clientstyle.css'
 import Navbar from './Statics/Navbar';
-import OffCanvasProyeccion from './Statics/OffCanvasProyeccion';
-import '../Assets/sb-admin-2.css'
+import ModalProyeccion from './Statics/ProyeccionDirectores/ModalProyeccion';
+function Proyeccion() {
+  const [data, setData] = useState([
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "VELOS",
+      "nombreContacto": "Ila Hyde",
+      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "LYRICHORD",
+      "nombreContacto": "Kate Gilbert",
+      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "INTRADISK",
+      "nombreContacto": "Lilia Reed",
+      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "ISBOL",
+      "nombreContacto": "Byers Molina",
+      "ciudadCliente": "765 Boardwalk , Whipholt, Oregon, 2161",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "MEDCOM",
+      "nombreContacto": "Briana Chambers",
+      "ciudadCliente": "892 Cyrus Avenue, Why, Federated States Of Micronesia, 153",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "ZILLAR",
+      "nombreContacto": "Patti Lott",
+      "ciudadCliente": "982 Leonora Court, Marenisco, District Of Columbia, 8377",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    },
+    {
+      "empresaCliente": "EXOSPEED",
+      "nombreContacto": "Hess Johns",
+      "ciudadCliente": "439 Bridgewater Street, Bergoo, Virgin Islands, 436",
+      "selector": 1,
+      "idSector": 1,
+      "probabilidad": 1
+    }
+  ]);
+  /*
+  useEffect(() => {
+      
+     const getData = () => {
+          Conexion.getClientes()
+              .then((response) => {
+                  setData(response.data);
+              })
+      }
+      getData();
+  }, [])
+  */
+  const [idCliente, setIdCliente] = useState(0);
+  const [showFilterModal, setShowFilterModal] = useState(false);
+  const [nombreDirector, setNombreDirector] = useState('');
+  useEffect(() => {
+    // Inicializa todos los popovers en el documento
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new window.bootstrap.Popover(popoverTriggerEl)
+    });
+  }, []);
 
-export const Proyeccion = () => {
-    const [isOffCanvasProyeccionVisible, setOffCanvasProyeccionVisible] = useState(false);
+  const showFilter = () => {
+    setShowFilterModal(true);
+    alert('hola')
+  }
 
-    const handleOffCanvasClick = () => {
-        setOffCanvasProyeccionVisible(!isOffCanvasProyeccionVisible);
-    };
-    return (
-        <div className='container'>
-            <Navbar />
-            <div className='container'>
-                <div className='row' style={{ justifyContent: "space-between" }}>
-                    <div className='col-4'>
-                        <h4 className='title-directores'>Directores</h4>
-                    </div>
-                    {/*alinear a la derecha*/}
-                    <div className='col-8 col-sm-6'>
-                        <div className='row'>
-                            <div className='col-6'>
-                                <div className='row'>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  createTheme('solarized', {
+    text: {
+      primary: '#fff',
+      secondary: '#2aa198',
+    },
+    background: {
+      default: '#131212',
+    },
+    context: {
+      background: '#0dfd2d',
+      text: '#0dfd2d',
+    },
+    divider: {
+      default: '#073642',
+    },
+    highlightOnHover: {
+      default: '#073642',
+      text: '#ffffff',
+    },
+    action: {
+      button: 'rgba(0,0,0,.54)',
+      hover: 'rgb(198, 58, 58)',
+      disabled: 'rgba(0,0,0,.12)',
+
+    },
+  }, 'dark');
+
+
+  const columns = [
+    {
+      name: 'Nombre Director',
+      selector: 'empresaCliente',
+      sortable: true,
+    },
+    
+    {
+      name: 'Ciudad',
+      selector: 'ciudadCliente',
+      sortable: true,
+    },
+
+    {
+      name: 'Telefono',
+      selector: 'telefono1',
+      sortable: true,
+    },
+   
+    {
+      name: 'Ubicacion',
+      selector: 'probabilidad',
+      sortable: true,
+    },
+    {
+        name: 'Rendimioento',
+        selector: 'probabilidad',
+        sortable: true,
+    }
+
+  ]
+  const openModal = (row) => {
+    //alert("funcione")
+    setIdCliente(row.idSector)
+    setNombreDirector(row.empresaCliente)
+
+
+    // alert(row.nombreContacto)
+    // setShowOffCanvas(true);
+    const offCanvasElement = document.querySelector('#modalProyeccion');
+    // Muestra el OffCanvas si existe
+    if (offCanvasElement) {
+      const offCanvas = new window.bootstrap.Modal(offCanvasElement);
+      offCanvas.show();
+    }
+  }
+  return (
+   
+    <div className='Body'>
+       <Navbar/>
+      
+   
+      <div className='container content-list-clientes'>
+        <div className='row container-clients' style={{ justifyContent: "space-between" }}>
+          <div className='col-4'>
+            <h4 className='title-list-clientes'>Clientes</h4>
+          </div>
+          {/*alinear a la derecha*/}
+          <div className='col-8 col-sm-6'>
+            <div className='row'>
+              <div className='col-6'>
+                <div className='row'>
+                  <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
+                    <i class="bi bi-funnel-fill">filtrar</i>
+                  </div>
+                  <div className='col-6'>
+                    <button className='btn btn-danger btn-sm btn-add-cliente'>Añadir </button>
+                  </div>
                 </div>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Director</th>
-                            <th scope="col">Ubicación</th>
-                            <th scope="col">Facturado</th>
-                            <th scope="col" onClick={handleOffCanvasClick}>Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Director 1</td>
-                            <td>Bogotá</td>
-                            <td>$ 123</td>
-                            <td onClick={handleOffCanvasClick}>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Director 2</td>
-                            <td>Bogotá</td>
-                            <td>$ 123</td>
-                            <td onClick={handleOffCanvasClick}>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Director 3</td>
-                            <td>Medellín</td>
-                            <td>$ 12113</td>
-                            <td onClick={handleOffCanvasClick}>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Director 4</td>
-                            <td>Bogotá</td>
-                            <td>$ 12113</td>
-                            <td onClick={handleOffCanvasClick}>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td colspan="2">TOTALES</td>
-                            <td>$ 100.000.00</td>
-                        </tr>
-                    </tbody>
-                </table>
+              </div>
+              <div className='col-6'>
+                <input className="dark-input" type="text" placeholder="Buscar..." />
+              </div>
             </div>
-            <OffCanvasProyeccion
-                show={isOffCanvasProyeccionVisible}
-                handleClose={handleOffCanvasClick}
-                content={
-                    <div>Contenido canvas
-                    
-                </div>
-                }
-            />
+          </div>
         </div>
-    );
+  
+
+        <ModalProyeccion
+        nombreDirector={nombreDirector}
+        idCliente={idCliente}
+        />
+        <DataTable
+          columns={columns}
+          data={data}
+          theme="solarized"
+          pointerOnHover={true}
+          highlightOnHover={true}
+          fixedHeader={true}
+          fixedHeaderScrollHeight="600px"
+          pagination
+          onRowClicked={row => openModal(row)}
+        />
+
+      </div>
+
+    </div>
+  )
 }
+
+export default Proyeccion;
