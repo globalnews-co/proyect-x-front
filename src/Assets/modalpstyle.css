@@ -1,0 +1,10 @@
+.modal-body{
+}
+.modal-content{
+    background-color:#303130;
+    height: 50vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
