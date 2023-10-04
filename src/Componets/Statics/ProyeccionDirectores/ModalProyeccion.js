@@ -1,6 +1,7 @@
 import React from 'react'
-import DataTable from 'react-data-table-component';
+import DataTable, { createTheme } from 'react-data-table-component';
 import OffCanvasProyeccion from './OffCanvasProyeccion';
+import '../../../Assets/modalpstyle.css'
 
 const ModalProyeccion = (props) => {
     const { nombreDirector, idCliente } = props;
@@ -11,6 +12,32 @@ const ModalProyeccion = (props) => {
         , { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }
 
     ];
+    createTheme('solarized', {
+        text: {
+          primary: '#fff',
+          secondary: '#2aa198',
+        },
+        background: {
+          default: '#131212',
+        },
+        context: {
+          background: '#0dfd2d',
+          text: '#0dfd2d',
+        },
+        divider: {
+          default: '#073642',
+        },
+        highlightOnHover: {
+          default: '#073642',
+          text: '#ffffff',
+        },
+        action: {
+          button: 'rgba(0,0,0,.54)',
+          hover: 'rgb(198, 58, 58)',
+          disabled: 'rgba(0,0,0,.12)',
+    
+        },
+      }, 'dark');
     const columns = [
         {
             name: 'Nombre Director',
@@ -46,7 +73,7 @@ const ModalProyeccion = (props) => {
     ];
 
     return (
-        <div>
+        <div class='containerModal'>
             <div class="modal  fade" id="modalProyeccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -55,10 +82,7 @@ const ModalProyeccion = (props) => {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
                         <OffCanvasProyeccion/>
-
-
                             <DataTable
                                 data={dataProyeccion}
                                 columns={columns}
@@ -66,10 +90,6 @@ const ModalProyeccion = (props) => {
                                 paginationPerPage={5}
                             />
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
