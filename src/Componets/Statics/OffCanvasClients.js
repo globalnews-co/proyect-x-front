@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function OffCanvasClients(props) {
   const { idCliente } = props;
-
+  useEffect(() => {
+    // OBTENER LOS DATOS DEL CLIENTE POR ID
+    Conexion.getClienteById(idCliente)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  , [idCliente]);
   return (
     <div>
         

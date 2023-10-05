@@ -42,8 +42,23 @@ class Conexion {
       return [];
     }
   }
-        
-
+      
+  //Metodo para obtener los clientes por id
+  getClienteById = async (id) => {
+    try {
+      const response = await axios.get(
+        url + "Cliente/" + id, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    }
+    catch {
+      return [];
+    }
+  }
 
 
   completeProfile = async (form) => {

@@ -120,7 +120,7 @@ function ListClientes() {
        <Navbar/>
       <OffCanvasClients
         idCliente={idCliente}
-
+        
       />
       <FilterModal/>
       <div className='container content-list-clientes'>
