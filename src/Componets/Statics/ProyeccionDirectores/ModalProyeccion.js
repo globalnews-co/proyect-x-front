@@ -7,37 +7,43 @@ const ModalProyeccion = (props) => {
     const { nombreDirector, idCliente } = props;
     const dataProyeccion = [{ id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
     { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }
-        , { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }
-        , { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, ,
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, ,
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, ,
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
+    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
 
     ];
     createTheme('solarized', {
         text: {
-          primary: '#fff',
-          secondary: '#2aa198',
+            primary: '#fff',
+            secondary: '#2aa198',
         },
         background: {
-          default: '#131212',
+            default: '#131212',
         },
         context: {
-          background: '#0dfd2d',
-          text: '#0dfd2d',
+            background: '#0dfd2d',
+            text: '#0dfd2d',
         },
         divider: {
-          default: '#073642',
+            default: '#073642',
         },
         highlightOnHover: {
-          default: '#073642',
-          text: '#ffffff',
+            default: '#073642',
+            text: '#ffffff',
         },
         action: {
-          button: 'rgba(0,0,0,.54)',
-          hover: 'rgb(198, 58, 58)',
-          disabled: 'rgba(0,0,0,.12)',
-    
+            button: 'rgba(0,0,0,.54)',
+            hover: 'rgb(198, 58, 58)',
+            disabled: 'rgba(0,0,0,.12)',
+
         },
-      }, 'dark');
+    }, 'dark');
     const columns = [
         {
             name: 'Nombre Director',
@@ -79,11 +85,12 @@ const ModalProyeccion = (props) => {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <OffCanvasProyeccion/>
+                            <OffCanvasProyeccion />
                             <DataTable
+                                theme="solarized"
                                 data={dataProyeccion}
                                 columns={columns}
                                 pagination

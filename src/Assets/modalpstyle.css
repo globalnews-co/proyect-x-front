@@ -1,10 +1,17 @@
-.modal-body{
-}
 .modal-content{
+    top:10rem;
+    padding: 1rem !important;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.54);
     background-color:#303130;
-    height: 50vh;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
-    justify-content: center;
+    justify-content:center;
 }
-
+.boton-añadir{
+    display: flex;
+}
+.btn {
+    margin: 1px 2px 5px 1px;
+}
