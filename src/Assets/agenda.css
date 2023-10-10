@@ -1,3 +1,4 @@
-.inputcolor{
-background-color: rgb(235, 246, 255);
+.contentcolor{
+    background-color: rgb(38, 38, 38) !important;
+    color:white
 }
