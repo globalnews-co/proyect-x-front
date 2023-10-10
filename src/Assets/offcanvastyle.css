@@ -1,7 +1,13 @@
+.offcanvas-body {
+    min-width: 100px;
+    text-align: left;
+}
+.boton-añadir {
+    display: flex;
+    justify-content: flex-end;
+}
 .offcanvas {
     background-color:#303130;
     color:aliceblue;
 }
-.offcanvas-body {
-    align-content: left;
-}
+

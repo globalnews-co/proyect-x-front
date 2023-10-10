@@ -18,13 +18,13 @@ const ModalProyeccion = (props) => {
     { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
 
     ];
-    createTheme('solarized', {
+    createTheme('solarized-modal', {
         text: {
             primary: '#fff',
             secondary: '#2aa198',
         },
         background: {
-            default: '#131212',
+            default: '#303130',
         },
         context: {
             background: '#0dfd2d',
@@ -51,7 +51,7 @@ const ModalProyeccion = (props) => {
             sortable: true,
         },
         {
-            name: 'servicio',
+            name: 'Servicio',
             selector: 'servicio',
             sortable: true,
             right: true,
@@ -90,7 +90,7 @@ const ModalProyeccion = (props) => {
                         <div class="modal-body">
                             <OffCanvasProyeccion />
                             <DataTable
-                                theme="solarized"
+                                theme="solarized-modal"
                                 data={dataProyeccion}
                                 columns={columns}
                                 pagination

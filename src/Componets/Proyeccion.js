@@ -318,16 +318,13 @@ function Proyeccion() {
       <div className='container content-list-clientes'>
         <div className='row container-clients' style={{ justifyContent: "space-between" }}>
           <div className='col-4'>
-            <h4 className='title-list-clientes'>Clientes</h4>
+            <h4 className='title-list-clientes'>DIRECTORES DE CUENTA</h4>
           </div>
           {/*alinear a la derecha*/}
           <div className='col-8 col-sm-6'>
             <div className='row'>
               <div className='col-6'>
                 <div className='row'>
-                  <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
-                    <i class="bi bi-funnel-fill">filtrar</i>
-                  </div>
                   <div className='col-6'>
                     <button className='btn btn-danger btn-sm btn-add-cliente'>Añadir </button>
                   </div>

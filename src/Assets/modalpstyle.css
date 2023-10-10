@@ -1,5 +1,5 @@
 .modal-content{
-    top:10rem;
+    top:2rem;
     padding: 1rem !important;
     border-radius: 10px;
     box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.54);
@@ -9,9 +9,6 @@
     background-repeat: no-repeat;
     justify-content:center;
 }
-.boton-añadir{
-    display: flex;
-}
 .btn {
-    margin: 1px 2px 5px 1px;
+    margin: 1px 0px 15px 1px;
 }
