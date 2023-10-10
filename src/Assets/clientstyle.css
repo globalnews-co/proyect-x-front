@@ -1,14 +1,14 @@
 .Body{
     background-image: url('./imagenes/background.jpg');
-
-    height: 100vh;
+    height: 150vh;
     background-size: cover;
     background-repeat: no-repeat;
     justify-content: center;
 }
 .content-list-clientes{
-   position: relative;
-    top:4rem;
+    position: relative;
+    top:2rem;
+    height: auto;
     padding: 2rem !important;
     background-color: #131212;
     border-radius: 10px;
