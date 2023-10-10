@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useContext} from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
-import Conexion from '../Service/Conexion';
-import '../Assets/clientstyle.css'
-import OffCanvasClients from './Statics/OffCanvasClients';
-import FilterModal from './Statics/FilterModal';
-import Navbar from './Statics/Navbar';
+import Conexion from '../../../Service/Conexion';
+import '../../../Assets/clientstyle.css'
+import OffCanvasClients from '../Static/OffCanvasClients';
+import FilterModal from '../../Statics/FilterModal';
+import Navbar from '../../Statics/Navbar';
+import { DataContext } from '../Context/DataContext';
 function ListClientes() {
-  const [data, setData] = useState([]);
+
   
+  const {  setIdCliente ,data,setData } = useContext(DataContext);
+
+
   useEffect(() => {
       
      const getData = () => {
@@ -19,20 +23,16 @@ function ListClientes() {
       getData();
   }, [])
   
-  const [idCliente, setIdCliente] = useState(0);
-  const [showFilterModal, setShowFilterModal] = useState(false);
   useEffect(() => {
+    console.log("render")
     // Inicializa todos los popovers en el documento
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+     popoverTriggerList.map(function (popoverTriggerEl) {
       return new window.bootstrap.Popover(popoverTriggerEl)
     });
   }, []);
 
-  const showFilter = () => {
-    setShowFilterModal(true);
-    alert('hola')
-  }
+ 
 
   createTheme('solarized', {
     text: {
@@ -87,8 +87,10 @@ function ListClientes() {
     {
       name: 'Director',
       selector: row =>
-      <button>
-      row.director</button>,
+      <div style={{borderRadius:'4px'}}>
+      <i class="bi bi-person-circle" style={{backgroundColor:'#276584',padding:'1rem'}}> { row.director}</i>
+      </div>
+     ,
       sortable: true,
     },
     {
@@ -104,7 +106,21 @@ function ListClientes() {
 
   ]
   const openModal = (row) => {
+
     setIdCliente(row.idSector)
+
+    const offCanvasElement = document.querySelector('#offCanvasClients');
+    // Muestra el OffCanvas si existe
+    if (offCanvasElement) {
+      const offCanvas = new window.bootstrap.Offcanvas(offCanvasElement);
+      offCanvas.show();
+    }
+  }
+
+  const addCliente = () => {
+    setIdCliente(0)
+   
+  
     // alert(row.nombreContacto)
     // setShowOffCanvas(true);
     const offCanvasElement = document.querySelector('#offCanvasClients');
@@ -115,12 +131,11 @@ function ListClientes() {
     }
   }
   return (
-   
+    
     <div className='Body'>
        <Navbar/>
+
       <OffCanvasClients
-        idCliente={idCliente}
-        
       />
       <FilterModal/>
       <div className='container content-list-clientes'>
@@ -137,7 +152,7 @@ function ListClientes() {
                     <i class="bi bi-funnel-fill">filtrar</i>
                   </div>
                   <div className='col-6'>
-                    <button className='btn btn-danger btn-sm btn-add-cliente'>Añadir </button>
+                    <button className='btn btn-danger btn-sm btn-add-cliente' onClick={addCliente}>Añadir </button>
                   </div>
                 </div>
               </div>
@@ -162,6 +177,8 @@ function ListClientes() {
       </div>
 
     </div>
+
+
   )
 }
 

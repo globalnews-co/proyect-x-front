@@ -72,5 +72,52 @@ class Conexion {
       return null;
     }
   }
+
+  //Metodo para obtener los directores
+
+  listDirectores = async () => {
+    try{
+      const response = await axios.get(
+        url + "Director/get-directors", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    }
+    catch {
+      return [];
+    }
+  }
+
+  //Metodo para crear clientes
+  createCliente = async (form) => {
+    try {
+      const response = await axios.post(
+        url + "Cliente",
+        form,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch { }
+  };
+  //Metodo para actualizar clientes
+  updateCliente = async (form) => {
+    try {
+      const response = await axios.put(
+        url + "Cliente",
+        form,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch { }
+  };
 }
 export default new Conexion();
