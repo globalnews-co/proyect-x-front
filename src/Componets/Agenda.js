@@ -10,6 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import Navbar from './Statics/Navbar';
+import "../Assets/agenda.css"
 
 
 
@@ -56,26 +58,21 @@ export const Agenda = () => {
   };
 
   return (
+    
     <div>
+     <Navbar/>
+      <div className='mt-4'>
       <Grid
         container
         direction="row-reverse"
         justifyContent="center"
         alignItems="center"
         spacing={2}
+        
       >
-        <Grid item xs={4} sm={12} md={12} xl={12} lg={12}>
-          <Card>
-            <CardHeader></CardHeader>
-            <CardContent>
-              <Typography variant="h5" color="primary">
-                Agenda Comercial
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+        
         <Grid item xs={4} sm={4} md={4} xl={4} lg={4}>
-          <Card>
+          <Card   style={{backgroundColor: "rgb(38, 38, 38)"}}       >
             <CardHeader></CardHeader>
             <CardContent>
               <Typography variant="h5" color="primary">
@@ -89,9 +86,11 @@ export const Agenda = () => {
                   <FormControl fullWidth>
                     <InputLabel id="cliente-label">Cliente</InputLabel>
                     <Select
+                    className='inputcolor'
                       labelId="cliente-label"
                       id="cliente"
                       value={formState.age}
+                      
                       onChange={handleChange}
                     >
                       <MenuItem value={10}>Ten</MenuItem>
@@ -108,6 +107,7 @@ export const Agenda = () => {
                     <FormControl fullWidth>
                       <InputLabel id="estado-label">ESTADO</InputLabel>
                       <Select
+                      className='inputcolor'
                         labelId="estado-label"
                         id="estado"
                         value={formState.age}
@@ -123,6 +123,7 @@ export const Agenda = () => {
                 <Form.Group>
                   <Form.Label>Fecha:</Form.Label>
                   <Form.Control
+                  className='inputcolor'
                     type="date"
                     onChange={handleFechaChange}
                     value={formState.fechaValue}
@@ -133,6 +134,7 @@ export const Agenda = () => {
                   <div className="input-group">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <TimePicker
+                      className='inputcolor'
                         label="Hora"
                         value={formState.horaValue}
                         onChange={handleHoraChange}
@@ -146,7 +148,7 @@ export const Agenda = () => {
 
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Observación</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={formState.inputValue} onChange={handleInputChange}></textarea>
+                  <textarea class="form-control inputcolor" id="exampleFormControlTextarea1" rows="3" value={formState.inputValue} onChange={handleInputChange}></textarea>
                 </div>
 
                 <Button variant="primary" type="submit">
@@ -157,6 +159,7 @@ export const Agenda = () => {
           </Card>
         </Grid>
       </Grid>
+      </div>
     </div>
   );
 
