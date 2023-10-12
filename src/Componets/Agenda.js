@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, Form } from 'react-bootstrap';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { CardContent, CardHeader, Grid, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Navbar from './Statics/Navbar';
+import "../Assets/agenda.css"
+
+
+
 
 export const Agenda = () => {
   const [formState, setFormState] = useState({
@@ -55,104 +55,93 @@ export const Agenda = () => {
   };
 
   return (
-    <div className='Body'>
+
+    <div >
       <Navbar />
-      <div style={{marginTop:'4rem', display:'flex'}}>
-      <Grid
-        container
-        direction="row-reverse"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4} 
+      <div className='Body'>
+        <Grid
+          container
+          direction="row-reverse"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+        >
 
-      >
+          <Grid item xs={4} sm={4} md={4} xl={4} lg={4}>
+            <Card className='contentcolor'>
+              <CardHeader></CardHeader>
+              <CardContent>
+                <Typography variant="h5" color="white">
+                  AGREGAR AGENDA
+                </Typography>
+              </CardContent>
+              <CardContent>
+                <form onSubmit={handleSubmit} >
 
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">CLIENTE</label>
+                    <select class="form-control" id="exampleFormControlInput1" placeholder="SELCCIONAR CLIENTE">
 
-
-        
-        <Grid item xs={4} sm={4} md={4} xl={4} lg={4}>
-          <Card>
-            <CardContent>
-              <Typography variant="h5" color="primary">
-                AGREGAR AGENDA
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Form onSubmit={handleSubmit}>
-                <Form.Label>Cliente:</Form.Label>
-                <Form.Group>
-                  <FormControl fullWidth>
-                    <InputLabel id="cliente-label">Cliente</InputLabel>
-                    <Select
-                      labelId="cliente-label"
-                      id="cliente"
-                      value={formState.age}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Form.Group>
-                <div style={{ marginTop: '16px' }}>
+                      <option value="COCA-COLA"> COCA-COLA </option>
+                      <option value="UBER"> UBER</option>
+                      <option value="3"> ANI </option>
+                      <option value="4"> ANATO </option>
 
 
-                  <Form.Label>Estado:</Form.Label>
-                  <Form.Group>
-                    <FormControl fullWidth>
-                      <InputLabel id="estado-label">ESTADO</InputLabel>
-                      <Select
-                        labelId="estado-label"
-                        id="estado"
-                        value={formState.age}
-                        onChange={handleChange}
-                      >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Form.Group>
-                </div>
-                <Form.Group>
-                  <Form.Label>Fecha:</Form.Label>
-                  <Form.Control
-                    type="date"
-                    onChange={handleFechaChange}
-                    value={formState.fechaValue}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Hora:</Form.Label>
-                  <div className="input-group">
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <TimePicker
-                        label="Hora"
-                        value={formState.horaValue}
-                        onChange={handleHoraChange}
-                        renderInput={(params) => <TextField {...params} />}
-                      />
-                    </LocalizationProvider>
-                    <p>La hora seleccionada es: {formState.horaValue}</p>
+                    </select>
+
                   </div>
-                </Form.Group>
-               
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">EVENTO</label>
+                    <select class="form-control" id="exampleFormControlInput1" placeholder="SELCCIONAR CLIENTE">
 
-                <div class="mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">Observación</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={formState.inputValue} onChange={handleInputChange}></textarea>
-                </div>
+                      <option value="1"> REUNION </option>
+                      <option value="2"> DFD</option>
+                      <option value="3"> DF </option>
+                      <option value="4"> DFD </option>
 
-                <Button variant="primary" type="submit">
-                  Enviar
-                </Button>
-              </Form>
-            </CardContent>
-          </Card>
+
+                    </select>
+
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">FECHA</label>
+                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder=""/>
+                  </div>
+
+                  <Form.Group>
+                    <Form.Label>Hora:</Form.Label>
+                    <div className="input-group" >
+                      <LocalizationProvider dateAdapter={AdapterDayjs}style={{backgroundColor:'white'}}>
+                        <TimePicker
+                          value={formState.horaValue}
+                          onChange={handleHoraChange}
+                          renderInput={(params) => <TextField {...params} style={{backgroundColor:'white'}}/>}
+                        />
+                      </LocalizationProvider>
+                      <p>La hora seleccionada es: {formState.horaValue}</p>
+                    </div>
+                  </Form.Group>
+
+
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Observación</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={formState.inputValue} onChange={handleInputChange}></textarea>
+                  </div>
+
+                  <Button variant="primary" type="submit">
+                    Enviar
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
       </div>
     </div>
   );
+
+
+
 };
+
