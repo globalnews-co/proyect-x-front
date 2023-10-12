@@ -95,7 +95,7 @@ function ListClientes() {
     },
     {
       name: 'Sector',
-      selector: row => row.idSector,
+      selector: row => row.sector,
       sortable: true,
     },
     {

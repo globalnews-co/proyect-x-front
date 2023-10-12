@@ -21,11 +21,13 @@ export  const DataProvider =({ children }) => {
     const [email, setEmail] = useState('');
     const [observaciones, setObservaciones] = useState('');
     const [directores , setDirectores] = useState([]);
+    const [sectores, setSectores] = useState([]);
     const [idCliente, setIdCliente] = useState(0);
 
   return (
     <DataContext.Provider
     value={{
+      sectores, setSectores,
         empresaCliente, setEmpresaCliente,
         nombreContacto, setNombreContacto,
         ciudadCliente, setCiudadCliente,

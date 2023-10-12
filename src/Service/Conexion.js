@@ -91,6 +91,24 @@ class Conexion {
     }
   }
 
+  //Metodo para obtener los sectores
+
+  listSectores = async () => {
+    try{
+      const response = await axios.get(
+        url + "Cliente/get-sectores", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    }
+    catch {
+      return [];
+    }
+  }
+
   //Metodo para crear clientes
   createCliente = async (form) => {
     try {
@@ -111,6 +129,20 @@ class Conexion {
       const response = await axios.put(
         url + "Cliente",
         form,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch { }
+  };
+
+  // Metodo para eliminar clientes
+  deleteCliente = async (id) => {
+    try {
+      const response = await axios.delete(
+        url + "Cliente/" + id,
         {
           headers: {
             Authorization: `Bearer ${token}`,

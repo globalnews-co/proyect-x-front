@@ -8,7 +8,7 @@ export default function OffCanvasClients() {
     telefono2, IdDirector, idSector, probabilidad, cargoContacto,
     nivelAcademicoContact, redSocial, fechaIngreso, fuente, email, setIdCliente, observaciones, setEmpresaCliente, setNombreContacto,
     setCiudadCliente, setTelefono1, setTelefono2, setIdDirector, setIdSector, setProbabilidad,
-    setCargoContacto, setNivelAcademicoContact, setRedSocial, setFechaIngreso, setFuente, setEmail, setObservaciones,directores , setDirectores
+    setCargoContacto, setNivelAcademicoContact, setRedSocial, setFechaIngreso, setFuente, setEmail, setObservaciones,directores , setDirectores,setSectores,sectores
 
   } = useContext(DataContext);
   useEffect(() => {
@@ -37,9 +37,28 @@ export default function OffCanvasClients() {
       }).catch((error) => {
         console.log(error);
       });
+      Conexion.listSectores().then((response) => {
+        setSectores(response);
+      }
+      ).catch((error) => {
+        console.log(error);
+      });
     }
     if (idCliente !== 0) {
       getData();
+    }
+    else{
+      Conexion.listDirectores().then((response) => {
+        setDirectores(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+      Conexion.listSectores().then((response) => {
+        setSectores(response);
+      }
+      ).catch((error) => {
+        console.log(error);
+      });
     }
   }, [idCliente])
 
@@ -80,6 +99,13 @@ export default function OffCanvasClients() {
       });
     }
   }
+  const deleteCliente = () => {
+    Conexion.deleteCliente(3).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
   console.log("idCliente", idCliente)
   return (
     <div>
@@ -113,6 +139,7 @@ export default function OffCanvasClients() {
                 htmlFor="exampleFormControlInput1"
                 className="form-label"
                 style={{ color: '#ff7a7a' }}
+                onClick={deleteCliente}
               >
                 Eliminar Cliente <i className="bi bi-trash2-fill"></i>
               </label>
@@ -265,7 +292,7 @@ export default function OffCanvasClients() {
             </div>
 
             <div class="input-group mb-3">
-              <label class="input-group-text" htmlFor="director"> <i class="bi bi-person-fill"></i>Director</label>
+              <label class="input-group-text" htmlFor="director"> <i class="bi bi-person-fill"> Director </i></label>
               <select class="form-select"
                 id="director"
                 value={IdDirector}
@@ -274,6 +301,20 @@ export default function OffCanvasClients() {
                 <option selected>Seleccione...</option>
                 {directores.map((director) => (
                   <option value={director.idDirector}>{director.nombre}</option>
+                ))}
+              </select>
+            </div>
+
+            <div class="input-group mb-3">
+              <label class="input-group-text" htmlFor="director"> <i class="bi bi-flag-fill">  Sector </i></label>
+              <select class="form-select"
+                id="director"
+                value={idSector}
+                onChange={(e) => setIdSector(e.target.value)}
+              >
+                <option selected>Seleccione...</option>
+                {sectores.map((director) => (
+                  <option value={director.idSector}>{director.nobmreSector}</option>
                 ))}
               </select>
             </div>
