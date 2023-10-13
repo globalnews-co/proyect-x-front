@@ -1,7 +1,7 @@
 import React from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
 import OffCanvasProyeccion from './OffCanvasProyeccion';
-import '../../../Assets/modalstyle.css'
+import '../../../Assets/modalpstyle.css'
 
 const ModalProyeccion = (props) => {
     const { nombreDirector, idCliente } = props;
