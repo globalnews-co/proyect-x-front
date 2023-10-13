@@ -22,21 +22,22 @@ class Navbar extends Component {
 
   getCurrentTime() {
     const now = new Date();
-    return now.toLocaleString(); // Puedes personalizar el formato según tus preferencias
+    return now.toLocaleTimeString(); // Cambiado a mostrar solo la hora
   }
-
+  
   render() {
     return (
-      <nav className='row align-items-center' style={{ padding: '0.7rem', width: '100vw' }}>
-        <div className="col-4 d-flex align-items-center">
-          <i className="bi bi-list">Inicio</i> 
-        </div>
-        <div className="col-4 text-center">
-          {this.state.currentTime}
-          
-        </div>
-        <div className="col-4 text-end">
-          Usuario
+      <nav className='navbar navbar-expand-lg navbar-dark  bg-opacity-0'>
+        <div className="container-fluid">
+          <div className="navbar-brand">
+            <i className="bi bi-list me-2"></i> Inicio
+          </div>
+          <div className="navbar-text mx-auto">
+            {this.state.currentTime}
+          </div>
+          <div className="navbar-text">
+            Usuario
+          </div>
         </div>
       </nav>
     );

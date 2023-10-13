@@ -30,11 +30,11 @@ class Conexion {
   getClientes = async () => {
     try {
       const response = await axios.get(
-        url + "Cliente"  , {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        url + "Cliente", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
       );
       return response.data;
     }
@@ -42,16 +42,16 @@ class Conexion {
       return [];
     }
   }
-      
+
   //Metodo para obtener los clientes por id
   getClienteById = async (id) => {
     try {
       const response = await axios.get(
         url + "Cliente/" + id, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
       );
       return response.data;
     }
@@ -76,13 +76,13 @@ class Conexion {
   //Metodo para obtener los directores
 
   listDirectores = async () => {
-    try{
+    try {
       const response = await axios.get(
         url + "Director/get-directors", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
       );
       return response.data;
     }
@@ -94,13 +94,13 @@ class Conexion {
   //Metodo para obtener los sectores
 
   listSectores = async () => {
-    try{
+    try {
       const response = await axios.get(
         url + "Cliente/get-sectores", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
       );
       return response.data;
     }
@@ -151,5 +151,27 @@ class Conexion {
       );
     } catch { }
   };
+  CreateAgenda = async (form) => {
+
+    try {
+
+      const response = await axios.post(
+        url + "Agenda/", form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+
+        },
+      }
+
+      );
+    } 
+    catch {
+      
+     }
+  }
+
+
+
+
 }
 export default new Conexion();

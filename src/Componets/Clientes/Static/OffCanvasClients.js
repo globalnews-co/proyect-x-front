@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Conexion from '../../../Service/Conexion';
 import { DataContext } from '../Context/DataContext';
+import Swal from 'sweetalert2';
 
 export default function OffCanvasClients() {
   const {
@@ -8,13 +9,13 @@ export default function OffCanvasClients() {
     telefono2, IdDirector, idSector, probabilidad, cargoContacto,
     nivelAcademicoContact, redSocial, fechaIngreso, fuente, email, setIdCliente, observaciones, setEmpresaCliente, setNombreContacto,
     setCiudadCliente, setTelefono1, setTelefono2, setIdDirector, setIdSector, setProbabilidad,
-    setCargoContacto, setNivelAcademicoContact, setRedSocial, setFechaIngreso, setFuente, setEmail, setObservaciones,directores , setDirectores,setSectores,sectores
+    setCargoContacto, setNivelAcademicoContact, setRedSocial, setFechaIngreso, setFuente, setEmail, setObservaciones, directores, setDirectores, setSectores, sectores
 
   } = useContext(DataContext);
   useEffect(() => {
     // obtener dtaos del cliente
     const getData = () => {
-      Conexion.getClienteById(5).then((response) => {
+      Conexion.getClienteById(idCliente).then((response) => {
         setEmpresaCliente(response.empresaCliente);
         setNombreContacto(response.nombreContacto);
         setCiudadCliente(response.ciudadCliente);
@@ -30,7 +31,7 @@ export default function OffCanvasClients() {
         setFuente(response.fuente);
         setEmail(response.email);
         setObservaciones(response.observaciones);
-      
+
       });
       Conexion.listDirectores().then((response) => {
         setDirectores(response);
@@ -47,7 +48,24 @@ export default function OffCanvasClients() {
     if (idCliente !== 0) {
       getData();
     }
-    else{
+    else {
+      // limpia los campos
+      setEmpresaCliente('');
+      setNombreContacto('');
+      setCiudadCliente('');
+      setTelefono1('');
+      setTelefono2('');
+      setIdDirector('');
+      setIdSector('');
+      setProbabilidad('');
+      setCargoContacto('');
+      setNivelAcademicoContact('');
+      setRedSocial('');
+      setFechaIngreso(null);
+      setFuente('');
+      setEmail('');
+      setObservaciones('');
+
       Conexion.listDirectores().then((response) => {
         setDirectores(response);
       }).catch((error) => {
@@ -84,27 +102,77 @@ export default function OffCanvasClients() {
     }
     if (idCliente !== 0) {
       //actualizar cliente
-   
+
       Conexion.updateCliente(form).then((response) => {
-        console.log(response);
+        Swal.fire({
+          title: 'Cliente Actualizado',
+          text: 'El cliente fue actualizado con éxito',
+          icon: 'success',
+          timer: 2000,
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
+          window.location.reload();
+        })
       }).catch((error) => {
-        console.log(error);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo actualizar el cliente',
+          icon: 'error',
+          timer: 2000,
+          confirmButtonText: 'Aceptar'
+        })
       });
     } else {
       //crear cliente
       Conexion.createCliente(form).then((response) => {
-        console.log(response);
+        Swal.fire({
+          title: 'Cliente Creado',
+          text: 'El cliente fue creado con éxito',
+          icon: 'success',
+          timer: 2000,
+          confirmButtonText: 'Aceptar'
+        }).then(() => {
+          window.location.reload();
+        })
       }).catch((error) => {
-        console.log(error);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo crear el cliente',
+          icon: 'error',
+          timer: 2000,
+          confirmButtonText: 'Aceptar'
+        })
       });
     }
   }
   const deleteCliente = () => {
-    Conexion.deleteCliente(3).then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      console.log(error);
-    });
+    Swal.fire({
+      title: '¿Está seguro de eliminar el cliente?',
+      text: "Esta acción no se puede revertir",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#ff7a7a',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Conexion.deleteCliente(idCliente).then(() => {
+          Swal.fire({
+            title: 'Cliente Eliminado',
+            text: 'El cliente fue eliminado con éxito',
+            icon: 'success',
+            timer: 2000,
+            confirmButtonText: 'Aceptar'
+          }).then(() => {
+          window.location.reload();
+          })
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+      return;
+    })
   }
   console.log("idCliente", idCliente)
   return (
@@ -119,10 +187,10 @@ export default function OffCanvasClients() {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-          {idCliente !== 0 ? (
+            {idCliente !== 0 ? (
               <i className="bi bi-person-fill">Detalle de cliente:  {empresaCliente}</i>
-            ) :             
-            <i className="bi bi-person-fill"> Crear Cliente </i>
+            ) :
+              <i className="bi bi-person-fill"> Crear Cliente </i>
             }
           </h5>
           <button
@@ -133,12 +201,12 @@ export default function OffCanvasClients() {
           ></button>
         </div>
         <div className="offcanvas-body">
-          {(idCliente !== 0 ) ?(
+          {(idCliente !== 0) ? (
             <div className="mb-3">
               <label
                 htmlFor="exampleFormControlInput1"
                 className="form-label"
-                style={{ color: '#ff7a7a' }}
+                style={{ color: '#ff7a7a', cursor: 'pointer' }}
                 onClick={deleteCliente}
               >
                 Eliminar Cliente <i className="bi bi-trash2-fill"></i>

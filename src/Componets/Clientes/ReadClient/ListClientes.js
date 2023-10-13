@@ -64,6 +64,11 @@ function ListClientes() {
 
   const columns = [
     {
+      name: 'ID Cliente',
+      selector: row => row.idCliente,
+      sortable: true,
+    },
+    {
       name: 'Nombre Empresa',
       selector: row => row.empresaCliente,
       sortable: true,
@@ -107,7 +112,7 @@ function ListClientes() {
   ]
   const openModal = (row) => {
 
-    setIdCliente(row.idSector)
+    setIdCliente(row.idCliente)
 
     const offCanvasElement = document.querySelector('#offCanvasClients');
     // Muestra el OffCanvas si existe

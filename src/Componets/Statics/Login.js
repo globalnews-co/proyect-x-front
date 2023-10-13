@@ -26,7 +26,7 @@ export default function () {
                     window.location.href = "/addProfile";
                 }
                 else{
-                window.location.href = "/fd";
+                window.location.href = "/Clientes";
                 }
             }
             else {
