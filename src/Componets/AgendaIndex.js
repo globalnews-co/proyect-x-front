@@ -8,205 +8,43 @@ import Navbar from './Statics/Navbar';
 function AgendaIndex() {
   const [data, setData] = useState([
     {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
+      "empresaCliente": "COCA-COLA",
+      "nombreContacto": "REUNIÓN",
+      "ciudadCliente": "10-10-2023",
+      "telefono1": "13:01",
+      "idDirector": "PENDIENTE"
+      
     },
     {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
+      "empresaCliente": "UBER",
+      "nombreContacto": "REUNIÓN",
+      "ciudadCliente": "19-10-2023",
+      "telefono1": "15:01",
+      "idDirector": "CANCELADA"
     },
     {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
+      "empresaCliente": "ANATO",
+      "nombreContacto": "REUNIÓN",
+      "ciudadCliente": "20-10-2023",
+      "telefono1": "15:01",
+      "idDirector": "PENDIENTE"
     },
     {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
+      "empresaCliente": "UBER",
+      "nombreContacto": "REUNIÓN",
+      "ciudadCliente": "19-10-2023",
+      "telefono1": "15:01",
+      "idDirector": "CANCELADA"
     },
     {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
+      "empresaCliente": "UBER",
+      "nombreContacto": "REUNIÓN",
+      "ciudadCliente": "19-10-2023",
+      "telefono1": "15:01",
+      "idDirector": "CANCELADA"
     },
-    {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "VELOS",
-      "nombreContacto": "Ila Hyde",
-      "ciudadCliente": "504 Myrtle Avenue, Torboy, Colorado, 9215",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "LYRICHORD",
-      "nombreContacto": "Kate Gilbert",
-      "ciudadCliente": "763 Sackett Street, Allentown, Nevada, 2764",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "INTRADISK",
-      "nombreContacto": "Lilia Reed",
-      "ciudadCliente": "662 Driggs Avenue, Alderpoint, Connecticut, 305",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "ISBOL",
-      "nombreContacto": "Byers Molina",
-      "ciudadCliente": "765 Boardwalk , Whipholt, Oregon, 2161",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "MEDCOM",
-      "nombreContacto": "Briana Chambers",
-      "ciudadCliente": "892 Cyrus Avenue, Why, Federated States Of Micronesia, 153",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "ZILLAR",
-      "nombreContacto": "Patti Lott",
-      "ciudadCliente": "982 Leonora Court, Marenisco, District Of Columbia, 8377",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    },
-    {
-      "empresaCliente": "EXOSPEED",
-      "nombreContacto": "Hess Johns",
-      "ciudadCliente": "439 Bridgewater Street, Bergoo, Virgin Islands, 436",
-      "selector": 1,
-      "idSector": 1,
-      "probabilidad": 1
-    }
+    
+    
   ]);
   /*
   useEffect(() => {
@@ -265,41 +103,32 @@ function AgendaIndex() {
 
   const columns = [
     {
-      name: 'Nombre Empresa',
+      name: 'CLIENTE',
       selector: 'empresaCliente',
       sortable: true,
     },
     {
-      name: 'Nombre Contacto',
+      name: 'EVENTO',
       selector: 'nombreContacto',
       sortable: true,
     },
     {
-      name: 'Ciudad',
+      name: 'FECHA',
       selector: 'ciudadCliente',
       sortable: true,
     },
 
     {
-      name: 'Telefono',
+      name: 'HORA',
       selector: 'telefono1',
       sortable: true,
     },
     {
-      name: 'Director',
+      name: 'ESTADO',
       selector: 'idDirector',
       sortable: true,
     },
-    {
-      name: 'Sector',
-      selector: 'idSector',
-      sortable: true,
-    },
-    {
-      name: 'Probabilidad',
-      selector: 'probabilidad',
-      sortable: true,
-    }
+    
 
   ]
   const openModal = (row) => {
@@ -325,7 +154,7 @@ function AgendaIndex() {
       <div className='container content-list-clientes'>
         <div className='row container-clients' style={{ justifyContent: "space-between" }}>
           <div className='col-4'>
-            <h4 className='title-list-clientes'>Clientes</h4>
+            <h4 className='title-list-clientes'>AGENDA COMERCIAL</h4>
           </div>
           {/*alinear a la derecha*/}
           <div className='col-8 col-sm-6'>
