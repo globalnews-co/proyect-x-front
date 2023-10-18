@@ -24,5 +24,8 @@ table {
 
 table, th {
     color: aliceblue;
-    padding: 2px;
-} 
+}
+td {
+    color: aliceblue;
+    font-family: cursive;
+}
