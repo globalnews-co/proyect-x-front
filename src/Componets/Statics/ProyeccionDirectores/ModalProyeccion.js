@@ -74,32 +74,66 @@ const ModalProyeccion = (props) => {
             sortable: true,
             right: true,
         }
-
-
+        ,
     ];
 
     return (
         <div class='containerModal'>
             <div class="modal  fade" id="modalProyeccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        
-                        
-                        <div class="modal-body">
-                            <OffCanvasProyeccion />
-                            <DataTable
-                                theme="solarized-modal"
-                                data={dataProyeccion}
-                                highlightOnHover={true}
-                                columns={columns}
-                                pagination
-                                paginationPerPage={5}
-                            />
+                <div class='modals'>
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                <OffCanvasProyeccion />
+                                <div className='row'>
+                                    <div className='col-8'>
+                                        <DataTable
+                                            theme="solarized-modal"
+                                            data={dataProyeccion}
+                                            highlightOnHover={true}
+                                            columns={columns}
+                                            pagination
+                                            paginationPerPage={5}
+                                        />
+
+                                    </div>
+                                    <div className='col-4'   >
+                                        <div className='row'>
+                                            <table>
+                                                <tr>
+                                                    <th>PRESUPUESTO NUEVAS VENTAS</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>$ 1000</td>
+                                                </tr>
+                                                <th>VENTAS 2020</th>
+                                                <tr>
+                                                    <td> $ 1000000</td>
+                                                </tr>
+                                                <th>BAJAS 2021</th>
+                                                <tr>
+                                                    <td> $ 1000000</td>
+                                                </tr>
+                                                <th>PRESUPUESTO</th>
+                                                <tr>
+                                                    <td> $ 1000000</td>
+                                                </tr>
+                                                <th>NUEVAS VENTAS</th>
+                                                <tr>
+                                                    <td> $ 1000000</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
