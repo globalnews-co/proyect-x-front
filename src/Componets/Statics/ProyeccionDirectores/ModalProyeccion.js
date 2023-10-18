@@ -139,8 +139,6 @@ const ModalProyeccion = (props) => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }
