@@ -195,7 +195,7 @@ CreateProyeccion=async (form) => {
   try {
 
     const response = await axios.post(
-      url + "Director/Proyeccion", form, {
+      url + "Director/add-proyeccion-dir", form, {
       headers: {
         Authorization: `Bearer ${token}`,
 

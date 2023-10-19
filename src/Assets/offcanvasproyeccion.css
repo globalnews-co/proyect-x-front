@@ -1,0 +1,20 @@
+.container {
+    text-align: left; /* Alinea el contenido a la izquierda */
+}
+
+label, input {
+    display: block; /* Coloca cada etiqueta y entrada en una nueva línea */
+    margin-bottom: 10px; /* Agrega espacio entre los elementos para mayor legibilidad */
+}
+.offcanvas-body {
+    min-width: 100px;
+    display: flex;
+}
+.boton-añadir {
+    display: flex;
+    justify-content: flex-end;
+}
+.offcanvas {
+    background-color:#303130;
+    color:aliceblue;
+}

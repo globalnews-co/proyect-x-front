@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../../Assets/clientstyle.css'
+import '../../Assets/offcanvasproyeccion.css'
 import Conexion from '../../Service/Conexion'
 import Swal from 'sweetalert2'
 
@@ -13,13 +13,17 @@ const [idProyeccion, setidProyeccion] = useState(0)
 
 
 const submitData = ()=>{
+
+  
 const form = {
-  idServcio,
+  idDirector: 1,//localStorage.getItem('IDdirector'),
+  // convertir a int
+  idServicio: parseInt(idServcio),
   fechaInicio,
   fechaFin,
   proyeccionValor
 }
-if (idProyeccion !== 0){
+if (idProyeccion === 0){
   Conexion.CreateProyeccion(form).then(()=>{
     Swal.fire({
       title:'Proyeccion cliente guardado con éxito'
