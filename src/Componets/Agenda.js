@@ -16,7 +16,7 @@ import "../Assets/agenda.css"
 
 
 
-export const Agenda = () => {
+export  const Agenda = () => {
   const [formState, setFormState] = useState({
     inputValue: '',
     selectValue: '',
@@ -61,8 +61,8 @@ export const Agenda = () => {
   return (
 
     <div >
-      <Navbar />
-      <div className='Body'>
+      
+      <div style={{position:"fixed",backgroundColor:"#ffffff00",width:"100%",height:"100%",zIndex:"99"}} className=''>
         <Grid
           container
           direction="row-reverse"

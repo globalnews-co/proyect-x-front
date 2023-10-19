@@ -1,196 +1,58 @@
-import React, { useEffect, useState } from 'react'
-import DataTable, { createTheme } from 'react-data-table-component';
-import Conexion from '../Service/Conexion';
-import '../Assets/clientstyle.css'
-import OffCanvasClients from './Statics/OffCanvasClients';
-import FilterModal from './Statics/FilterModal';
-import Navbar from './Statics/Navbar';
+import React, { useState } from "react";
+import Fullcalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import * as bootstrap from "bootstrap";
+import { sliceEvents, createPlugin } from "@fullcalendar/core";
+import {Agenda} from "./Agenda"
+
 function AgendaIndex() {
-  const [data, setData] = useState([
+  const [mostrarFormulario, setMostrarFormulario] = useState(false); // Estado para controlar la visibilidad del formulario
+  const events = [
     {
-      "empresaCliente": "COCA-COLA",
-      "nombreContacto": "REUNIÓN",
-      "ciudadCliente": "10-10-2023",
-      "telefono1": "13:01",
-      "idDirector": "PENDIENTE"
-      
+      title: "Holaaaaa",
+      start: "2023-10-17T08:00:00",
+      end: "2023-10-17T08:00:00",
     },
-    {
-      "empresaCliente": "UBER",
-      "nombreContacto": "REUNIÓN",
-      "ciudadCliente": "19-10-2023",
-      "telefono1": "15:01",
-      "idDirector": "CANCELADA"
-    },
-    {
-      "empresaCliente": "ANATO",
-      "nombreContacto": "REUNIÓN",
-      "ciudadCliente": "20-10-2023",
-      "telefono1": "15:01",
-      "idDirector": "PENDIENTE"
-    },
-    {
-      "empresaCliente": "UBER",
-      "nombreContacto": "REUNIÓN",
-      "ciudadCliente": "19-10-2023",
-      "telefono1": "15:01",
-      "idDirector": "CANCELADA"
-    },
-    {
-      "empresaCliente": "UBER",
-      "nombreContacto": "REUNIÓN",
-      "ciudadCliente": "19-10-2023",
-      "telefono1": "15:01",
-      "idDirector": "CANCELADA"
-    },
-    
-    
-  ]);
-  /*
-  useEffect(() => {
-      
-     const getData = () => {
-          Conexion.getClientes()
-              .then((response) => {
-                  setData(response.data);
-              })
-      }
-      getData();
-  }, [])
-  */
-  const [idCliente, setIdCliente] = useState(0);
-  const [showFilterModal, setShowFilterModal] = useState(false);
-  useEffect(() => {
-    // Inicializa todos los popovers en el documento
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new window.bootstrap.Popover(popoverTriggerEl)
-    });
-  }, []);
+  ];
 
-  const showFilter = () => {
-    setShowFilterModal(true);
-    alert('hola')
-  }
+  const handleBoton = () => {
+    setMostrarFormulario(!mostrarFormulario);
 
-  createTheme('solarized', {
-    text: {
-      primary: '#fff',
-      secondary: '#2aa198',
-    },
-    background: {
-      default: '#131212',
-    },
-    context: {
-      background: '#0dfd2d',
-      text: '#0dfd2d',
-    },
-    divider: {
-      default: '#073642',
-    },
-    highlightOnHover: {
-      default: '#073642',
-      text: '#ffffff',
-    },
-    action: {
-      button: 'rgba(0,0,0,.54)',
-      hover: 'rgb(198, 58, 58)',
-      disabled: 'rgba(0,0,0,.12)',
+  };
 
-    },
-  }, 'dark');
-
-
-  const columns = [
-    {
-      name: 'CLIENTE',
-      selector: 'empresaCliente',
-      sortable: true,
-    },
-    {
-      name: 'EVENTO',
-      selector: 'nombreContacto',
-      sortable: true,
-    },
-    {
-      name: 'FECHA',
-      selector: 'ciudadCliente',
-      sortable: true,
-    },
-
-    {
-      name: 'HORA',
-      selector: 'telefono1',
-      sortable: true,
-    },
-    {
-      name: 'ESTADO',
-      selector: 'idDirector',
-      sortable: true,
-    },
-    
-
-  ]
-  const openModal = (row) => {
-    setIdCliente(row.idSector)
-    // alert(row.nombreContacto)
-    // setShowOffCanvas(true);
-    const offCanvasElement = document.querySelector('#offCanvasClients');
-    // Muestra el OffCanvas si existe
-    if (offCanvasElement) {
-      const offCanvas = new window.bootstrap.Offcanvas(offCanvasElement);
-      offCanvas.show();
-    }
-  }
   return (
-   
-    <div className='Body'>
-       <Navbar/>
-      <OffCanvasClients
-        idCliente={idCliente}
+    <div>
+      
+      <button onClick={handleBoton} className="btn btn-primary">{(mostrarFormulario===true)? "Cerrar Agenda":"Crear Agenda" } </button>
+      
 
+      {mostrarFormulario && <Agenda />} {/* Mostrar el formulario (o Agenda) si mostrarFormulario es true */}
+      <Fullcalendar
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        editable={true}
+        initialView={"dayGridMonth"}
+        headerToolbar={{
+          start: "today prev,next",
+          center: "title",
+          end: "dayGridMonth,timeGridWeek,timeGridDay",
+        }}
+        height={"90vh"}
+        events={events}
+        eventDidMount={(info) => {
+          return new bootstrap.Popover(info.el, {
+            title: info.event.title,
+            placement: "auto",
+            trigger: "hover",
+            customClass: "popoverStyle",
+            content: "<p> Hola </strong></p>",
+            html: true,
+          });
+        }}
       />
-      <FilterModal/>
-      <div className='container content-list-clientes'>
-        <div className='row container-clients' style={{ justifyContent: "space-between" }}>
-          <div className='col-4'>
-            <h4 className='title-list-clientes'>AGENDA COMERCIAL</h4>
-          </div>
-          {/*alinear a la derecha*/}
-          <div className='col-8 col-sm-6'>
-            <div className='row'>
-              <div className='col-6'>
-                <div className='row'>
-                  <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
-                    <i class="bi bi-funnel-fill">filtrar</i>
-                  </div>
-                  <div className='col-6'>
-                    <button className='btn btn-danger btn-sm btn-add-cliente'>Añadir </button>
-                  </div>
-                </div>
-              </div>
-              <div className='col-6'>
-                <input className="dark-input" type="text" placeholder="Buscar..." />
-              </div>
-            </div>
-          </div>
-        </div>
-        <DataTable
-          columns={columns}
-          data={data}
-          theme="solarized"
-          pointerOnHover={true}
-          highlightOnHover={true}
-          fixedHeader={true}
-          fixedHeaderScrollHeight="600px"
-          pagination
-          onRowClicked={row => openModal(row)}
-        />
-
-      </div>
-
     </div>
-  )
+  );
 }
 
-export default AgendaIndex
+export default AgendaIndex;
