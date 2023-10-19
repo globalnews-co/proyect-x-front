@@ -1,132 +1,64 @@
-import React from "react";
+import React from 'react';
 
-export default function FormClientes() {
-    
-  return (
-    <div>
-      <form>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="empresa">Empresa</label>
-            <input
-              type="text"
-              class="form-control"
-              id="empresa"
-              placeholder="Nombre de la empresa"
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="telefono">Teléfono</label>
-            <input
-              type="text"
-              class="form-control"
-              id="telefono"
-              placeholder="Número de teléfono"
-            />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="fuente">Fuente</label>
-            <input
-              type="text"
-              class="form-control"
-              id="fuente"
-              placeholder="Fuente de contacto"
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="nombre-contacto">Nombre de Contacto</label>
-            <input
-              type="text"
-              class="form-control"
-              id="nombreContacto"
-              placeholder="Nombre del contacto"
-            />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="email">E-mail</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Correo electrónico"
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="red-social">Red Social</label>
-            <input
-              type="text"
-              class="form-control"
-              id="red-social"
-              placeholder="Perfil de redes sociales"
-            />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="sector">Sector</label>
-            <input
-              type="text"
-              class="form-control"
-              id="sector"
-              placeholder="Sector de la empresa"
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="tipo-servicio">Tipo de Servicio</label>
-            <input
-              type="text"
-              class="form-control"
-              id="tipo-servicio"
-              placeholder="Tipo de servicio ofrecido"
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="observacion">Observación</label>
-          <textarea
-            class="form-control"
-            id="observacion"
-            rows="3"
-            placeholder="Observaciones"
-          ></textarea>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="probabilidad">Probabilidad</label>
-            <input
-              type="text"
-              class="form-control"
-              id="probabilidad"
-              placeholder="Probabilidad de conversión"
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="nivel-educativo">Nivel Educativo</label>
-            <input
-              type="text"
-              class="form-control"
-              id="nivel-educativo"
-              placeholder="Nivel educativo del contacto"
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="ciudad">Ciudad</label>
-          <input
-            type="text"
-            class="form-control"
-            id="ciudad"
-            placeholder="Ciudad"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary" >
-          Enviar
-        </button>
-      </form>
-    </div>
-  );
+class TablaEventos extends React.Component {
+    render() {
+        const eventos = [
+            {
+                id: 1,
+                cliente: 'Cliente 1',
+                evento: 'Evento A',
+                fecha: '2023-10-17',
+                hora: '15:00',
+                observacion: 'Observación 1'
+            },
+            {
+                id: 2,
+                cliente: 'Cliente 2',
+                evento: 'Evento B',
+                fecha: '2023-10-18',
+                hora: '10:30',
+                observacion: 'Observación 2'
+            },
+            {
+                id: 3,
+                cliente: 'Cliente 3',
+                evento: 'Evento C',
+                fecha: '2023-10-19',
+                hora: '14:15',
+                observacion: 'Observación 3'
+            },
+        ];
+
+        return (
+            <div className="container">
+                <h2>Tabla de Eventos</h2>
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CLIENTE</th>
+                            <th>EVENTO</th>
+                            <th>FECHA</th>
+                            <th>HORA</th>
+                            <th>OBSERVACIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {eventos.map(evento => (
+                            <tr key={evento.id}>
+                                <td>{evento.id}</td>
+                                <td>{evento.cliente}</td>
+                                <td>{evento.evento}</td>
+                                <td>{evento.fecha}</td>
+                                <td>{evento.hora}</td>
+                                <td>{evento.observacion}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
 }
+
+export default TablaEventos;

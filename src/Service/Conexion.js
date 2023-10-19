@@ -170,8 +170,80 @@ class Conexion {
      }
   }
 
+getProyeccionDir=async (id) => {
 
+  try {
 
+    const response = await axios.get(
+      url + "Director/get-proyeccion-dir/"+id,  {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+      },
+    }
+
+    );
+    return response.data;
+  } 
+  catch {
+    return [];
+   }
+}
+
+CreateProyeccion=async (form) => {
+
+  try {
+
+    const response = await axios.post(
+      url + "Director/Proyeccion", form, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+      },
+    }
+
+    );
+  } 
+  catch {
+    
+   }
+}
+DeleteProyeccion=async (form) => {
+
+  try {
+
+    const response = await axios.delete(
+      url + "Director/Proyeccion", form, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+      },
+    }
+
+    );
+  } 
+  catch {
+    
+   }
+}
+UpdateProyeccion=async (form) => {
+
+  try {
+
+    const response = await axios.put(
+      url + "Director/Proyeccion", form, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+      },
+    }
+
+    );
+  } 
+  catch {
+    
+   }
+}
 
 }
 export default new Conexion();

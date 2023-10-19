@@ -1,23 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
 import OffCanvasProyeccion from './OffCanvasProyeccion';
-import '../../../Assets/modalpstyle.css'
+import '../../Assets/modalpstyle.css'
+import Conexion from '../../Service/Conexion'
+import moment from 'moment/moment';
 
 const ModalProyeccion = (props) => {
-    const { nombreDirector, idCliente } = props;
-    const dataProyeccion = [{ id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, ,
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, ,
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' }, ,
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-    { id: 1, title: 'Conan the Barbarian', servicio: 'hola mundo', year: '1982', year2: '2020', proyeccion: '1000000' },
-
-    ];
+    const { nombreDirector, idDirector } = props;
+    const [dataProyeccion, setDataProyeccion] = useState([])
+     useEffect(()=>{
+        const getdata = ()=> {
+            Conexion.getProyeccionDir(idDirector).then((Response)=>{
+                setDataProyeccion(Response)
+            })
+        }
+        getdata()
+     } , [idDirector])
     createTheme('solarized-modal', {
         text: {
             primary: '#fff',
@@ -47,30 +45,32 @@ const ModalProyeccion = (props) => {
     const columns = [
         {
             name: 'Nombre Director',
-            selector: 'title',
+            selector: 'nombreDirector',
             sortable: true,
         },
         {
             name: 'Servicio',
-            selector: 'servicio',
+            selector: 'nombreServicio',
             sortable: true,
             right: true,
         },
         {
+
             name: 'Fecha Inicio',
-            selector: 'year',
+            // dar formato a la fecha con moment yyyy-mm-dd
+            selector: row => moment(row.fechaInicio).format('DD MMM YYYY'),
             sortable: true,
             right: true,
         },
         {
             name: 'Fecha Fin',
-            selector: 'year2',
+            selector: row => moment(row.fechaFin).format('DD MMM YYYY'),
             sortable: true,
             right: true,
         },
         {
             name: 'Proyeccion Ventas',
-            selector: 'proyeccion',
+            selector: row => row.proyeccionValor,
             sortable: true,
             right: true,
         }
@@ -83,15 +83,19 @@ const ModalProyeccion = (props) => {
             <div class="modal  fade" id="modalProyeccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
+                        
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        
+                        
                         <div class="modal-body">
                             <OffCanvasProyeccion />
                             <DataTable
                                 theme="solarized-modal"
                                 data={dataProyeccion}
+                                highlightOnHover={true}
                                 columns={columns}
                                 pagination
                                 paginationPerPage={5}
