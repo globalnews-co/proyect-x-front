@@ -1,5 +1,5 @@
-import { Agenda } from "./Componets/Agenda";
-import { AgendaIndex } from "./Componets/AgendaIndex";
+import  Agenda  from "./Componets/Agenda";
+import  AgendaIndex  from "./Componets/AgendaIndex";
 import FormClientes from "./Componets/FormClientes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Componets/Statics/Login";
