@@ -83,13 +83,20 @@ const ModalProyeccion = (props) => {
                 <div class='modals'>
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
-
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>  
+                                <div className='search'>      
+                                <div className='row'>
+                                    <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
+                                        <i class="bi bi-funnel-fill">filtrar</i>
+                                    </div>
+                                    <div className='col-4'>
+                                        <input className="dark-input" type="text" placeholder="Buscar..." />
+                                    </div>
+                                    </div>
+                                </div>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-
-
                             <div class="modal-body">
                                 <OffCanvasProyeccion />
                                 <div className='row'>
