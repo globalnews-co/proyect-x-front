@@ -3,14 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, Form } from 'react-bootstrap';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { CardContent, CardHeader, Grid, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import Navbar from './Statics/Navbar';
+
 import "../Assets/agenda.css"
 
 
@@ -29,13 +26,6 @@ export  const Agenda = () => {
     setFormState({ ...formState, inputValue: e.target.value });
   };
 
-  const handleSelectChange = (e) => {
-    setFormState({ ...formState, selectValue: e.target.value });
-  };
-
-  const handleFechaChange = (e) => {
-    setFormState({ ...formState, fechaValue: e.target.value });
-  };
 
   const handleHoraChange = (hora) => {
     console.log(hora);
@@ -43,20 +33,15 @@ export  const Agenda = () => {
     setFormState({ ...formState, horaValue: horaformateada });
   };
 
-  const handleChange = (event) => {
-    setFormState({ ...formState, age: event.target.value });
-  };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Valores del formulario:', formState);
   };
 
-  const [value, setValue] = React.useState('2023-08-18T21:11');
 
-  const handleChange2 = (newValue) => {
-    setValue(newValue);
-  };
+
 
   return (
 
