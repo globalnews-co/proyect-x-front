@@ -80,21 +80,22 @@ const ModalProyeccion = (props) => {
 
     return (
         <div class='containerModal'>
-            <FilterModal/>
+            <FilterModal />
             <div class="modal  fade" id="modalProyeccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class='modals'>
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>  
-                                <div class='search'>      
-                                <div className='row'>
-                                    <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
-                                        <i class="bi bi-funnel-fill">filtrar</i>
-                                    </div>
-                                    <div className='col-3'>
-                                        <input className="dark-input" type="text" placeholder="Buscar..." />
-                                    </div>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>
+                                <div class='search'>
+                                    <div className='row'>
+                                        <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
+                                            <img src="./../../Assets/imagenes/filter.png" alt="Imagen de filtro" style={{ marginRight: '5px' }} />
+                                            <i class="bi bi-funnel-fill">Filtrar</i>
+                                        </div>
+                                        <div className='col-3'>
+                                            <input className="dark-input" type="text" placeholder="Buscar..." />
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
