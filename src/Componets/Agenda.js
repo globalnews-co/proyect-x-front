@@ -9,16 +9,17 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import "../Assets/agenda.css"
+import moment from 'moment';
 
 
 
 
-export  const Agenda = () => {
+const Agenda = () => {
   const [formState, setFormState] = useState({
     inputValue: '',
     selectValue: '',
     fechaValue: '',
-    horaValue: '2023-08-18T21:11',
+    horaValue: moment().format('yyyy-MM-DDThh:mm'),
     age: '',
   });
 
@@ -69,7 +70,7 @@ export  const Agenda = () => {
 
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">CLIENTE</label>
-                    <select class="form-control" id="exampleFormControlInput1" placeholder="SELCCIONAR CLIENTE">
+                    <select class="form-control" id="exampleFormControlInput1" placeholder="SELCCIONAR CLIENTE" >
 
                       <option value="COCA-COLA"> COCA-COLA </option>
                       <option value="UBER"> UBER</option>
@@ -95,7 +96,7 @@ export  const Agenda = () => {
                   </div>
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">FECHA</label>
-                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder=""/>
+                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="" onChange={(e)=>setFormState({...formState,fechaValue:e.target.value})}/>
                   </div>
 
                   <Form.Group>
@@ -133,3 +134,4 @@ export  const Agenda = () => {
 
 
 };
+export default Agenda;

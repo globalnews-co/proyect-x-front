@@ -7,6 +7,12 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
 
+    "@mui/x-date-pickers": "^5.0.0",
+    "@mui/material": "^5.14.10",
+
+    "dayjs": "^1.11.10",
+
+
     "@fullcalendar/bootstrap5": "^6.1.9",
     "@fullcalendar/core": "^6.1.9",
     "@fullcalendar/daygrid": "^6.1.9",

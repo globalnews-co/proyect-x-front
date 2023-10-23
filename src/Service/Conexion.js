@@ -244,6 +244,19 @@ UpdateProyeccion=async (form) => {
     
    }
 }
-
+listAgenda = async (id) => {
+try {
+  const response = await axios.get(
+    url + "Agenda/" + id, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+  );
+  return response.data;
+} catch (error) {
+  
+}
+}
 }
 export default new Conexion();
