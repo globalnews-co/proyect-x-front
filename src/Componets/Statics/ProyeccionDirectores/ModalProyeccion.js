@@ -2,6 +2,7 @@ import React from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
 import OffCanvasProyeccion from './OffCanvasProyeccion';
 import '../../../Assets/modalpstyle.css'
+import FilterModal from '../FilterModal';
 
 const ModalProyeccion = (props) => {
     const { nombreDirector, idCliente } = props;
@@ -79,18 +80,19 @@ const ModalProyeccion = (props) => {
 
     return (
         <div class='containerModal'>
+            <FilterModal/>
             <div class="modal  fade" id="modalProyeccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class='modals'>
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Proyeccion {nombreDirector}</h1>  
-                                <div className='search'>      
+                                <div class='search'>      
                                 <div className='row'>
                                     <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
                                         <i class="bi bi-funnel-fill">filtrar</i>
                                     </div>
-                                    <div className='col-4'>
+                                    <div className='col-3'>
                                         <input className="dark-input" type="text" placeholder="Buscar..." />
                                     </div>
                                     </div>
