@@ -1,11 +1,13 @@
 import { Agenda } from "./Componets/Agenda";
-import AgendaIndex from "./Componets/AgendaIndex"; // Corregir aquí
+import Sector from "./Componets/Sector.js";
+import SectorIndex from "./Componets/SectorIndex";
+import AgendaIndex from "./Componets/AgendaIndex";
 import FormClientes from "./Componets/FormClientes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Componets/Statics/Login";
-import ListClientes  from "./Componets/ListClientes";
+import ListClientes from "./Componets/ListClientes";
 import Inicio from "./Componets/inicio";
-import Navbar from "./Componets/Statics/Navbar";
+
 
 function App() {
   return (
@@ -14,15 +16,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/form" element={<FormClientes />} />
-          <Route path="/Clientes" element={<ListClientes />} /> 
+          <Route path="/Clientes" element={<ListClientes />} />
           <Route path="/fd" element={<Inicio />} />
-         <Route path="/agenda" element={<Agenda />} />
+          <Route path="/sector" element={<Sector />} />
+          <Route path="/agenda" element={<Agenda />} />
+          <Route path="/SectorIndex" element={<SectorIndex />} />
           <Route path="/AgendaIndex" element={<AgendaIndex />} />
-        </Routes> 
+        </Routes>
       </Router>
     </div>
   );
 }
 
 export default App;
-
