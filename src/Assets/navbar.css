@@ -1,0 +1,65 @@
+/* Estilos generales del sidebar */
+.mysidebar {
+
+    background-color:  #000000 !important;
+
+    
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #222;
+}
+
+.sidebar-title {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.btn-light {
+    color: #333;
+    background-color: #fff;
+    border: none;
+}
+
+/* Estilos para el botón de cerrar */
+#closeSidebar {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.sidebar-body {
+    padding: 20px;
+}
+
+/* Estilos para los enlaces del menú */
+.list-unstyled li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.list-unstyled a {
+    color: #fff;
+    display: block;
+    transition: color 0.3s;
+
+}
+
+.list-unstyled a:hover {
+    color: #030303f6;
+}
+.list-unstyled li{
+    padding: 4px;
+  }
+    
+.list-unstyled a:hover{
+  background-color: #429599e3;
+
+  width: 100%;
+  padding: 7px;
+  border-radius: 6px;
+}

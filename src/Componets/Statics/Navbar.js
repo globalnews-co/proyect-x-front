@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OffCanvas from './OffCanvas';
+import SideBar from './SideBar';
 
 class Navbar extends Component {
   constructor(props) {
@@ -39,25 +39,28 @@ class Navbar extends Component {
     localStorage.removeItem('token');
     localStorage.removeItem('IDdirector');
     localStorage.removeItem('IDuser');
+    localStorage.removeItem('userName');
     window.location.href = '/';
   }
 
+ 
+
   render() {
+    const userName = localStorage.getItem('userName');
     return (
       <div>
-      <nav className='navbar navbar-expand-lg navbar-dark bg-opacity-0'>
+      <nav className='navbar navbar-expand-lg' style={{backgroundColor:"black",color:"white",fontSize:"16px",padding:'10px'}}>
         <div className="container-fluid">
-          <div className="navbar-brand"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <div  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i className="bi bi-list me-2"></i> Inicio
           </div>
-
-          <div className="navbar-text mx-auto" >
+          <div className="mx-auto" >
             {this.state.currentTime}
           </div>
           <div >
-            <div className="navbar-text" id="userPopover" style={{ cursor: 'pointer' }} onClick={this.togglePopover}>
+            <div className="" id="userPopover" style={{ cursor: 'pointer' }} onClick={this.togglePopover}>
               <i className="bi bi-person-circle me-2"></i>
-              Usuario
+              {userName}	
             </div>
             {/* Popover para opciones de usuario */}
             {this.state.showPopover && (
@@ -74,7 +77,7 @@ class Navbar extends Component {
         </div>
         
       </nav>
-      <OffCanvas/>
+      <SideBar/>
       </div>
     );
   }

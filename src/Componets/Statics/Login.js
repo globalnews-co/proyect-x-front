@@ -22,6 +22,7 @@ export default function () {
                 localStorage.setItem("token", response.token);
                 localStorage.setItem("IDdirector", response.idDirector );
                 localStorage.setItem("IDuser", response.idUser);
+                localStorage.setItem("userName", response.username);
                 if (response.idDirector === null) {
                     window.location.href = "/addProfile";
                 }

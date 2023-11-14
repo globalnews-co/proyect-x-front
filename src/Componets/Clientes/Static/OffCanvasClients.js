@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Conexion from '../../../Service/Conexion';
 import { DataContext } from '../Context/DataContext';
 import Swal from 'sweetalert2';
+import DetalleCliente from '../Details/DetalleCliente';
 
 export default function OffCanvasClients() {
   const {
@@ -12,6 +13,8 @@ export default function OffCanvasClients() {
     setCargoContacto, setNivelAcademicoContact, setRedSocial, setFechaIngreso, setFuente, setEmail, setObservaciones, directores, setDirectores, setSectores, sectores
 
   } = useContext(DataContext);
+  const [showDetails, setShowDetails] = useState(false);
+
   useEffect(() => {
     // obtener dtaos del cliente
     const getData = () => {
@@ -165,7 +168,7 @@ export default function OffCanvasClients() {
             timer: 2000,
             confirmButtonText: 'Aceptar'
           }).then(() => {
-          window.location.reload();
+            window.location.reload();
           })
         }).catch((error) => {
           console.log(error);
@@ -174,10 +177,13 @@ export default function OffCanvasClients() {
       return;
     })
   }
+
+
+
   console.log("idCliente", idCliente)
   return (
     <div>
-
+      <DetalleCliente />
       <div
         className="offcanvas offcanvas-end text-bg-dark"
         tabIndex="-1"
@@ -200,17 +206,38 @@ export default function OffCanvasClients() {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body">
+        <div className="offcanvas-body" style={{ display: "block" }}>
           {(idCliente !== 0) ? (
-            <div className="mb-3">
-              <label
-                htmlFor="exampleFormControlInput1"
-                className="form-label"
-                style={{ color: '#ff7a7a', cursor: 'pointer' }}
-                onClick={deleteCliente}
-              >
-                Eliminar Cliente <i className="bi bi-trash2-fill"></i>
-              </label>
+            <div className="row mb-3">
+              <div className="col-6">
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                    style={{ color: '#ff7a7a', cursor: 'pointer' }}
+                    onClick={deleteCliente}
+                  >
+                    Eliminar Cliente <i className="bi bi-trash2-fill"></i>
+                  </label>
+                </div>
+              </div>
+              <div className="col-6">
+                
+
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                    style={{ color: 'rgb(126, 255, 122)', cursor: 'pointer' }}
+                    data-bs-toggle="modal" data-bs-target="#modalDetalleCliente"
+                    onClick={() => setShowDetails(!showDetails)}
+                  >
+                    Ver Mas <i className="bi bi-clipboard-data-fill"></i>
+                  </label>
+                </div>
+
+              </div>
+
             </div>
           ) : null}
           <div>

@@ -153,21 +153,23 @@ class Conexion {
   };
   CreateAgenda = async (form) => {
 
-    try {
+    
 
-      const response = await axios.post(
+      await axios.post(
         url + "Agenda/", form, {
         headers: {
           Authorization: `Bearer ${token}`,
 
         },
       }
-
-      );
-    } 
-    catch {
       
-     }
+      ).then((response) => {
+        return response
+      }).catch((error) => {
+        return error
+      })
+      
+    
   }
 
 getProyeccionDir=async (id) => {
@@ -247,7 +249,7 @@ UpdateProyeccion=async (form) => {
 listAgenda = async (id) => {
 try {
   const response = await axios.get(
-    url + "Agenda/" + id, {
+    url + "Director/get-agenda/" + id, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -258,5 +260,98 @@ try {
   
 }
 }
+
+CreateAgenda = async (form) => {
+  
+    try {
+      const response = await axios.post(
+        url + "Director/add-agenda/", form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+  
+        },
+      }
+      );
+    } catch (error) {
+      
+    }
+    }
+
+  GetServicios = async () => {
+    try {
+      const response = await axios.get(url+"Servicios/" , {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    }catch (error) {
+      return [];
+    }
+  }
+
+
+  CreateVenta = async (form) => {
+    try {
+      const response = await axios.post(url+"Ventas/", form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }catch (error) {
+      return [];
+    }
+  }
+
+  ListVentasByCliente = async (id) => {
+    try {
+      const response = await axios.get(url+"Ventas/get-ventas-by-cliente/"+id, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    }catch (error) {
+      return [];
+    }
+  }
+
+  ListServiciosByCliente = async (id) => {
+    try {
+      const response = await axios.get(url+"Servicios/servicios-by-cliente/"+id, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    }
+    catch (error) {
+      return [];
+    }
+  }
+
+  DeleteServicioCliente = async (form) => {
+    try {
+      await axios.post(url+"Servicios/delete-servicios-by-cliente",form ,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+          ContentType : "application/json"
+        },
+      });
+    }catch (error) {
+      return [];
+    }
+  }
+  CreateServicioCliente = async (form) => {
+    try {
+      const response = await axios.post(url+"Servicios/add-servicios-by-cliente/",form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }catch (error) {
+      return [];
+    }
+  }
 }
 export default new Conexion();

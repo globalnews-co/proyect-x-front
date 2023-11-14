@@ -137,7 +137,7 @@ function ListClientes() {
   }
   return (
     
-    <div className='Body'>
+    <div>
        <Navbar/>
 
       <OffCanvasClients

@@ -1,5 +1,4 @@
-import  Agenda  from "./Componets/Agenda";
-import  AgendaIndex  from "./Componets/AgendaIndex";
+import  Agenda  from "./Componets/Agenda/Agenda";
 import FormClientes from "./Componets/FormClientes";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Componets/Statics/Login";
@@ -17,10 +16,10 @@ function App() {
         <Routes>
          <Route path="/" element={<Login />} />
           <Route path="/form" element={<FormClientes />} />
-          <Route path="/angendaindex" element={<AgendaIndex />} />
+          <Route path="/agenda" element={<Agenda/>} />
           <Route path="/Clientes" element={<ClientesPage />} /> 
           <Route path="/fd" element={<Inicio/>} />
-          <Route path="/agenda" element={<Agenda />} />
+     
           <Route path="/Proyeccion" element={<Proyeccion />} />
           {getidDir === 'null' ? <Route path="/addProfile" element={<AddProfile/>} /> : null}
           <Route path="/addProfile" element={<AddProfile/>} /> 
