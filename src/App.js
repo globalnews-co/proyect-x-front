@@ -1,5 +1,6 @@
 import { Agenda } from "./Componets/Agenda";
 import Sector from "./Componets/Sector.js";
+import { Servicio } from "./Componets/Servicio.js";
 import SectorIndex from "./Componets/SectorIndex";
 import AgendaIndex from "./Componets/AgendaIndex";
 import FormClientes from "./Componets/FormClientes";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/Clientes" element={<ListClientes />} />
           <Route path="/fd" element={<Inicio />} />
           <Route path="/sector" element={<Sector />} />
+          <Route path="/servicio" element={<Servicio />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/SectorIndex" element={<SectorIndex />} />
           <Route path="/AgendaIndex" element={<AgendaIndex />} />
