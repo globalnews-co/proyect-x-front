@@ -115,7 +115,7 @@ const ModalProyeccion = (props) => {
                                     </div>
                                     <div className='col-4'   >
                                         <div className='row'>
-                                            <div class="card" style={{ width: '10rem', backgroundColor: "#6F7D8C", margin:"0.3rem" }}>
+                                            <div class="card" style={{ width: '10rem', backgroundColor: "#6F7D8B", margin:"0.3rem" }}>
                                                 <div class="card-body">
                                                     <h5 class="card-title">NUEVAS VENTAS</h5>
                                                     <p class="card-text">$ 1000</p>
