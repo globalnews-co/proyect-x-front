@@ -90,7 +90,6 @@ const ModalProyeccion = (props) => {
                                 <div class='search'>
                                     <div className='row'>
                                         <div className='col-6' data-bs-toggle="modal" data-bs-target="#filterModal" style={{ cursor: 'pointer' }}>
-                                            <img src="./../../Assets/imagenes/filter.png" alt="Imagen de filtro" style={{ marginRight: '5px' }} />
                                             <i class="bi bi-funnel-fill">Filtrar</i>
                                         </div>
                                         <div className='col-3'>
@@ -116,30 +115,36 @@ const ModalProyeccion = (props) => {
                                     </div>
                                     <div className='col-4'   >
                                         <div className='row'>
-                                            <table>
-                                                <tr>
-                                                    <th>PRESUPUESTO NUEVAS VENTAS</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>$ 1000</td>
-                                                </tr>
-                                                <th>VENTAS 2020</th>
-                                                <tr>
-                                                    <td> $ 1000000</td>
-                                                </tr>
-                                                <th>BAJAS 2021</th>
-                                                <tr>
-                                                    <td> $ 1000000</td>
-                                                </tr>
-                                                <th>PRESUPUESTO</th>
-                                                <tr>
-                                                    <td> $ 1000000</td>
-                                                </tr>
-                                                <th>NUEVAS VENTAS</th>
-                                                <tr>
-                                                    <td> $ 1000000</td>
-                                                </tr>
-                                            </table>
+                                            <div class="card" style={{ width: '10rem', backgroundColor: "#6F7D8C", margin:"0.3rem" }}>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">NUEVAS VENTAS</h5>
+                                                    <p class="card-text">$ 1000</p>
+                                                </div>
+                                            </div>
+                                            <div class="card" style={{ width: '9rem' , margin:"0.3rem"}}>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">VENTAS 2020</h5>
+                                                    <p class="card-text">$ 1000</p>
+                                                </div>
+                                            </div>
+                                            <div class="card" style={{ width: '10rem' , margin:"0.3rem"}}>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">BAJAS 2021</h5>
+                                                    <p class="card-text">$ 1000</p>
+                                                </div>
+                                            </div>
+                                            <div class="card" style={{ width: '9rem' , margin:"0.3rem"}}>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">PRESUPUESTO</h5>
+                                                    <p class="card-text">$ 1000</p>
+                                                </div>
+                                            </div>
+                                            <div class="card" style={{ width: '19rem' , margin:"0.3rem"}}>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">FACTURADO</h5>
+                                                    <p class="card-text">$ 1000</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
