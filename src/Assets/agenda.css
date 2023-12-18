@@ -1,4 +1,5 @@
-.contentcolor{
-    background-color: rgb(38, 38, 38) !important;
-    color:white
+.contentcolor {
+    background-color: rgb(255, 250, 250) !important;
+    color: rgb(37, 26, 26); /* Asegúrate de que el color sea negro */
+    font-weight: bold; /* Agrega negrita */
 }
