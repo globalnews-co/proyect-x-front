@@ -1,0 +1,214 @@
+/* Resetear estilos de enlaces */
+a {
+    color: inherit;
+    text-decoration: none !important;
+  }
+  
+  /* Para asegurarnos que se aplica también en estados hover/focus */
+  a:hover,
+  a:focus {
+    color: inherit;
+    text-decoration: none !important;
+  }
+  
+  .row {
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+  }
+  
+  .col-4 {
+      flex-shrink: 0;
+      background: white;
+      border-radius: 8px;
+      height: fit-content;
+  }
+  
+  .col-8 {
+      flex: 1;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* Estilos del Formulario */
+  .form-control {
+      font-size: 0.95rem;
+      border-radius: 6px;
+      background-color: #fff;
+      transition: all 0.2s ease;
+      margin-bottom: 1rem;
+  }
+  
+  .form-control:focus {
+      border-color: #000000;
+      outline: none;
+  }
+  
+  /* Contenedor de Búsqueda */
+  .search-container {
+      position: relative;
+      margin-bottom: 1rem;
+      z-index: 1000;
+  }
+  
+  .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      max-height: 200px;
+      overflow-y: auto;
+  }
+  
+  .search-result-item {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+  }
+  
+  .search-result-item:hover {
+      background-color: #f8fafc;
+  }
+  
+  /* Calendario */
+  .fc {
+      flex: 1;
+      /* Altura mínima para el calendario */
+      background: white;
+  }
+  
+  .fc .fc-toolbar.fc-header-toolbar {
+      margin: 0.5rem 0 1.5rem 0;
+      padding: 0.5rem;
+      background: #f8fafc;
+      border-radius: 6px;
+  }
+  
+  .fc .fc-toolbar-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+  }
+  
+  
+  /* Eventos del Calendario */
+  .fc-event {
+      border: none;
+      padding: 2px 4px;
+      margin: 1px 0;
+      border-radius: 4px;
+      font-size: 0.875rem;
+  }
+  
+  /* Estilos específicos para tipos de eventos */
+  .fc-event.telemercadeo {
+      background-color: rgba(255, 255, 0, 0.9) !important;
+      color: #000 !important;
+  }
+  
+  .fc-event.primera-visita {
+      background-color: rgba(255, 0, 0, 0.9) !important;
+      color: white !important;
+  }
+  
+  .fc-event.seguimiento {
+      background-color: rgba(255, 165, 0, 0.9) !important;
+      color: white !important;
+  }
+  
+  .fc-event.mantenimiento {
+      background-color: rgba(0, 128, 0, 0.9) !important;
+      color: white !important;
+  }
+  
+  /* Estilos del Formulario de Creación */
+  .form-group {
+      margin-bottom: 1rem;
+  }
+  
+
+  select.form-control {
+      padding-right: 2rem;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      appearance: none;
+  }
+  
+  /* Estilos para inputs de tiempo y fecha */
+  input[type="time"],
+  input[type="date"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+  }
+  
+  /* Botón de Crear Agenda */
+  button.btn-crear-agenda {
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-top: 1rem;
+  }
+  
+  button.btn-crear-agenda:hover {
+      background-color: #2563eb;
+  }
+  
+  /* Estilos para el área de observaciones */
+  textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+      .row {
+          flex-direction: column;
+          height: auto;
+      }
+  
+      .col-4,
+      .col-8 {
+          width: 100%;
+          min-height: auto;
+      }
+  
+      .col-4 {
+          margin-bottom: 1rem;
+      }
+  
+      .fc {
+          min-height: 500px;
+      }
+  }
+  
+  /* Ajustes para el scroll */
+  .fc-scroller {
+      height: auto !important;
+  }
+  
+  /* Ajuste para los días del calendario */
+  .fc-daygrid-body {
+      height: auto !important;
+  }
+  
+  /* Ajuste para la vista de mes */
+  .fc-daygrid-body-balanced {
+      height: auto !important;
+  }

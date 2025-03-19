@@ -1,0 +1,200 @@
+/* ModalProyeccion.css */
+.mp-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.mp-modal-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.mp-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+    position: relative;
+}
+
+.mp-modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.mp-total-amount {
+    font-size: 20px;
+    color: #2563eb;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.mp-close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    z-index: 0;
+}
+
+.mp-modal-content {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.mp-sections-container {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.mp-vertical-divider {
+    height: 100%;
+    background-color: #e5e7eb;
+    margin: 0;
+}
+
+.mp-section {
+    padding-right: 12px;
+}
+
+.mp-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.mp-section-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.mp-select-all-button {
+    color: #2563eb;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.mp-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mp-service-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mp-service-item .mp-value-input {
+    opacity: 0;
+    width: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.mp-service-item.show-input .mp-value-input {
+    opacity: 1;
+    width: 120px;
+}
+
+.mp-months-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.mp-month-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mp-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #2563eb;
+}
+
+.mp-value-input {
+    padding: 4px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.mp-value-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.1);
+}
+
+.mp-modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f9fafb;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.mp-submit-button {
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 24px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mp-submit-button:hover {
+    background-color: #1d4ed8;
+}
+
+.mp-label {
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+}
+
+@keyframes mp-slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mp-value-input-container {
+    animation: mp-slideIn 0.3s ease-out;
+}

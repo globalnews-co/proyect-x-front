@@ -1,0 +1,127 @@
+/* Estilos principales */
+.client-list-wrapper {
+    background-color: #131212;
+    min-height: calc(100vh - 60px);
+    padding: 2rem;
+  }
+  
+  .client-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+  }
+  
+  .client-list-title {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  /* Controles */
+  .client-list-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .client-list-add-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .client-list-search {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 14px;
+  }
+  
+  .client-list-search::placeholder {
+    color: #666666;
+  }
+  
+  /* Tabla */
+  .client-list-table {
+    width: 100%;
+  }
+  
+  /* Estilos para DataTable */
+  .rdt_Table {
+    background-color: #131212 !important;
+    color: #ffffff !important;
+  }
+  
+  .rdt_TableHead {
+    background-color: #131212 !important;
+  }
+  
+  .rdt_TableHeadRow {
+    background-color: #131212 !important;
+    border-bottom: none !important;
+    color: #ffffff !important;
+    font-weight: normal !important;
+    min-height: 40px !important;
+  }
+  
+  .rdt_TableRow {
+    background-color: #131212 !important;
+    border-bottom: 1px solid #2a2a2a !important;
+    min-height: 40px !important;
+  }
+  
+  .rdt_TableCell {
+    padding: 8px 16px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+  }
+  
+  /* Celda del Director */
+  .client-list-director-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #276584;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #ffffff;
+  }
+  
+  .client-list-director-icon {
+    font-size: 14px;
+  }
+  
+  /* Paginación */
+  .rdt_Pagination {
+    background-color: #131212 !important;
+    color: #ffffff !important;
+    border-top: none !important;
+    padding: 12px !important;
+    font-size: 13px !important;
+  }
+  
+  .rdt_Pagination select {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border: 1px solid #333333 !important;
+  }
+  
+  .rdt_Pagination button:disabled {
+    fill: #666666 !important;
+  }
+  
+  /* Estado sin datos */
+  .client-list-no-data {
+    padding: 20px;
+    text-align: center;
+    color: #666666;
+  }

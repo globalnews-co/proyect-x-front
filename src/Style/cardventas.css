@@ -1,0 +1,178 @@
+.card-ventas {
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: none;
+}
+
+.card-ventas .card-header {
+    padding: 20px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.card-ventas .search-total-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.card-ventas .search-input {
+    padding: 12px 16px;
+    width: 300px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card-ventas .search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.card-ventas .total-value-container {
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card-ventas .total-value {
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-ventas .total-label {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Estilos para la tabla */
+.card-ventas .rdt_Table {
+    color: #1a1a1a;
+    padding: 16px;
+}
+
+.card-ventas .rdt_TableHead {
+    background-color: #f8fafc;
+}
+
+.card-ventas .rdt_TableHeadRow {
+    border-bottom: 2px solid #e2e8f0;
+    min-height: 52px;
+}
+
+.card-ventas .rdt_TableCol {
+    padding: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+}
+
+.card-ventas .rdt_TableRow {
+    min-height: 52px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+.card-ventas .rdt_TableRow:hover {
+    background-color: #f8fafc;
+    cursor: pointer;
+}
+
+.card-ventas .rdt_TableCell {
+    padding: 16px;
+    font-size: 14px;
+    color: #334155;
+}
+
+/* Estilos para la paginación */
+.card-ventas .rdt_Pagination {
+    border-top: 1px solid #e2e8f0;
+    padding: 16px 24px;
+    color: #64748b;
+    background-color: #f8fafc;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.card-ventas select {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 0 8px;
+    font-size: 14px;
+    color: #334155;
+    background-color: white;
+    cursor: pointer;
+}
+
+.card-ventas .rdt_PaginationButton {
+    padding: 6px 12px;
+    margin: 0 4px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: white;
+    color: #334155;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.card-ventas .rdt_PaginationButton:hover:not(:disabled) {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.card-ventas .rdt_PaginationButton:disabled {
+    color: #cbd5e1;
+    background-color: #f8fafc;
+    cursor: not-allowed;
+}
+
+/* Estilos para el contenido expandible */
+.card-ventas .expanded-content {
+    padding: 20px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.servicio-item {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.servicio-nombre {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.servicio-valor {
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.servicio-item.activo {
+    border-left: 3px solid #3b82f6;
+}

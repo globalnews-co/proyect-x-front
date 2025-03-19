@@ -1,0 +1,43 @@
+.bg-overlay {   
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+ 
+}
+
+/* Estilos para los enlaces del menú */
+.list-unstyled li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    color: #fff;
+}
+
+.list-unstyled span {
+    color: #fff;
+    display: block;
+    transition: color 0.3s;
+    position: relative;
+    left: 1.2rem;
+
+}
+
+.list-unstyled span:hover {
+    color: #030303f6;
+}
+.list-unstyled li{
+    padding: 6px;
+  }
+    
+.list-unstyled li:hover{
+  background-color: #429599e3;
+
+  width: 100%;
+  padding: 7px;
+  border-radius: 6px;
+}
+.list-unstyled a{
+  text-decoration: none;
+  color: #fff;
+}

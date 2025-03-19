@@ -1,0 +1,40 @@
+.prueba {
+  background-color: rgb(250, 241, 241);
+  width: 100dvw;
+  height: 100vh;
+}
+
+.dataTable-container {
+  max-width: 100%;
+  /* Asegura que la tabla no se desborde del contenedor */
+  overflow-x: auto;
+  /* Permite el desbordamiento horizontal solo si es necesario */
+}
+
+.dataTable {
+  width: 100%;
+  /* La tabla tomará el 100% del ancho del contenedor */
+  table-layout: fixed;
+  /* Fija el tamaño de las columnas para evitar que se expandan */
+}
+
+
+.contacto {
+  display: flex;
+  align-items: center; /* Alinea el contenido verticalmente */
+  width: 100%; /* Asegura que ocupe el ancho total */
+}
+
+
+.label-contact {
+  padding-top: 1rem;
+}
+
+ul {
+  padding-left: 0% !important;
+
+}
+
+li {
+  display: block;
+}
