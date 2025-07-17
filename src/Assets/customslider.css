@@ -1,0 +1,39 @@
+.custom-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+}
+
+.slider-content {
+  display: flex;
+  width: 100%;
+}
+
+.slider-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    font-size: 27px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0.3rem;
+    background-color: #85a25285;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.slider-button.prev {
+  left: 0;
+}
+
+.slider-button.next {
+  right: 0;
+  justify-content: end;
+}

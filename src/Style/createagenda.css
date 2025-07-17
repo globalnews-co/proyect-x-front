@@ -1,0 +1,179 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Dark theme variables */
+:root {
+  --primary-bg: #1a1a1a;
+  --secondary-bg: #2d2d2d;
+  --text-color: #ffffff;
+  --border-color: #404040;
+  --input-bg: #333333;
+  --hover-color: #404040;
+  --danger-color: #ff7a7a;
+  --success-color: #7eff7a;
+  --primary-button: #0d6efd;
+}
+
+/* OffCanvas styles */
+.offcanvas.text-bg-dark {
+  background-color: var(--primary-bg) !important;
+  color: var(--text-color);
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+}
+
+.offcanvas-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.offcanvas-body {
+  padding: 1.5rem;
+}
+
+/* Form controls */
+.form-control, .form-select, .input-group-text {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: var(--input-bg);
+  border-color: var(--primary-button);
+  color: var(--text-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.input-group-text {
+  background-color: var(--secondary-bg);
+}
+
+/* Labels */
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Action buttons */
+.btn-delete-client {
+  color: var(--danger-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-delete-client:hover {
+  color: #ff5555;
+}
+
+.btn-view-more {
+  color: var(--success-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-view-more:hover {
+  color: #5fff5f;
+}
+
+/* Contact section */
+.contact-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--secondary-bg);
+  border-radius: 0.5rem;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Dividers */
+.section-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Save button */
+.btn-add-cliente {
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  background-color: var(--primary-button);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-cliente:hover {
+  background-color: #0b5ed7;
+}
+
+/* Textarea */
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Close button */
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Remove button styles */
+.btn-remove {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.btn-remove:hover {
+  color: #ff5555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .offcanvas {
+    width: 100% !important;
+  }
+  
+  .row {
+    margin: 0;
+  }
+  
+  .col-sm-4, .col-sm-6, .col-sm-12 {
+    padding: 0.5rem;
+  }
+}
+
+/* Custom scrollbar */
+.offcanvas-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.offcanvas-body::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}

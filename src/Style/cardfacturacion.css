@@ -1,0 +1,331 @@
+.a {
+    color: #000000 !important;
+}
+:root {
+    --primary-blue: #2196F3;
+    --primary-light: #E3F2FD;
+    --secondary-blue: #2196F3;
+    --background: #FFFFFF;
+    --background-secondary: #F8F9FA;
+    --text-primary: #263238;
+    --text-secondary: #546E7A;
+    --text-muted: #78909C;
+    --border-color: #E0E0E0;
+    --success: #2E7D32;
+    --warning: #d03aeb;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.modern-card {
+    background: var(--background);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+.header-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    /* Removido el margin bottom */
+}
+
+.header-title h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.add-projection-btn {
+    background: #a65dfa;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.add-projection-btn:hover {
+    background: var(--secondary-blue);
+    box-shadow: var(--hover-shadow);
+}
+
+.date-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0rem 1.25rem;
+    border-radius: 12px;
+    background: var(--background);
+    border: 1px solid var(--border-color);
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.25rem;
+}
+
+.nav-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary-blue);
+}
+
+.current-month {
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 120px;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.year-select {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.year-select:hover {
+    color: var(--primary-blue);
+}
+
+.year-select:focus {
+    outline: none;
+    color: var(--primary-blue);
+}
+
+/* Añadir separador vertical entre los controles */
+.date-controls-separator {
+    width: 1px;
+    height: 24px;
+    background-color: var(--border-color);
+    margin: 0 0.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat-card {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 7px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+.stat-card.highlight {
+    background: var(--primary-light);
+    border-color: var(--primary-blue);
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Content Navigation */
+.content-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-item.active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Chart Section */
+.chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.chart-container,
+.table-container {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    min-height: 100px;
+}
+
+/* Summary Grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.summary-card {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.summary-card:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+.summary-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.summary-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-card {
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-title {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-title {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-header {
+        align-items: center;
+    }
+
+    .date-controls {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modern-card {
+    animation: fadeIn 0.3s ease-out;
+}
