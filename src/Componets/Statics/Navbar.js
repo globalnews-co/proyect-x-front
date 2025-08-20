@@ -27,7 +27,7 @@ const Navbar = () => {
     const profileData = localStorage.getItem('profile');
     if (profileData) {
       try {
-        const parsedProfile = JSON.parse(profileData);
+        const parsedProfile = profileData
         setUserProfile({
           nombre: parsedProfile.nombre || "",
           email: parsedProfile.email || "",

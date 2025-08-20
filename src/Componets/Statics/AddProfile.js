@@ -6,7 +6,6 @@ function AddProfile() {
   // Declare a state variable for form data
   const [form, setForm] = useState({});
 
-  //const jsonuser = JSON.parse(user);
   // Define the submit function
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +16,7 @@ function AddProfile() {
       console.log("response", response);
       if (response) {
         console.log("response", response);
-        localStorage.setItem("profile",JSON.stringify( response.profile));
+        localStorage.setItem("profile",response.profile);
         window.location.href = "/";
         
       } else {

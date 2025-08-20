@@ -1,21 +1,39 @@
 import axios from "axios";
 
-const url = "http://192.168.1.156:8087/";
+const url = "http://192.168.1.166:8087/";
 const token = localStorage.getItem("token");
 
-const user = JSON.parse(localStorage.getItem("user"))
-const profile = JSON.parse(localStorage.getItem("profile"))
+const safeJSONParse = (item, defaultValue = null) => {
+  try {
+    const stored = localStorage.getItem(item);
+    if (!stored || stored === "undefined" || stored === "null") {
+      return defaultValue;
+    }
+    if (stored === "[object Object]" || stored.startsWith("[object")) {
+      console.warn(`localStorage contiene datos inválidos para ${item}:`, stored);
+      localStorage.removeItem(item); // Limpiar datos corruptos
+      return defaultValue;
+    }
+    return JSON.parse(stored);
+  } catch (error) {
+    console.error(`Error parsing JSON from localStorage for ${item}:`, error);
+    localStorage.removeItem(item); 
+    return defaultValue;
+  }
+};
+
+const user = safeJSONParse("user", {});
+const profile = safeJSONParse("profile", {});
 
 class Conexion {
   //Metodo para loguearse
   login = async (form) => {
     try {
       const response = await axios.post(url + "login", form);
-
       return response.data;
     } catch (error) {
       console.log("error", error);
-      return null;
+      throw error;
     }
   };
 
@@ -82,7 +100,6 @@ class Conexion {
     }
   }
 
-
   //Metodo para verificar el token
   verifyToken = async () => {
     try {
@@ -99,8 +116,6 @@ class Conexion {
       return false;
     }
   };
-
-
 
   getListClientes = async (idPerfil) => {
     try {
@@ -167,7 +182,7 @@ class Conexion {
       const response = await axios.get(url + "directores", {
         headers: {
           Authorization: `Bearer ${token}`,
-          'X-User-Profile': JSON.stringify(profile.ID_User),
+          'X-User-Profile': JSON.stringify(profile.ID_User || ""),
         },
       });
       return response.data;
@@ -177,7 +192,6 @@ class Conexion {
   };
 
   //Metodo para obtener los sectores
-
   listSectores = async () => {
     try {
       const response = await axios.get(
@@ -194,7 +208,6 @@ class Conexion {
     }
   }
 
-
   //Metodo para crear clientes
   createCliente = async (form) => {
     return await axios.post(
@@ -206,9 +219,7 @@ class Conexion {
         },
       }
     )
-
   };
-
 
   //Metodo para verificar la existencia de un cliente
   verifyClient = async (id) => {
@@ -224,6 +235,7 @@ class Conexion {
       return response
     } catch { }
   }
+
   //Metodo para actualizar clientes
   updateCliente = async (form) => {
     try {
@@ -236,7 +248,6 @@ class Conexion {
           },
         }
       );
-
     } catch { }
   };
 
@@ -257,23 +268,18 @@ class Conexion {
     }
   };
 
-
   CreateAgenda = async (form) => {
     await axios.post(
       url + "agenda/", form, {
       headers: {
         Authorization: `Bearer ${token}`,
-
       },
     }
-
     ).then((response) => {
       return response
     }).catch((error) => {
       return error
     })
-
-
   }
 
   getProyeccionDir = async (id, mes, anio) => {
@@ -283,13 +289,10 @@ class Conexion {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-
         },
       }
     );
     return response
-
-
   }
 
   CreateProyeccion = async (form) => {
@@ -298,49 +301,40 @@ class Conexion {
       url + "proyecciondir", form, {
       headers: {
         Authorization: `Bearer ${token}`,
-
       },
     }
     );
     return response;
-
   }
+
   DeleteProyeccion = async (form) => {
-
     try {
-
       await axios.delete(
         url + "Director/Proyeccion", form, {
         headers: {
           Authorization: `Bearer ${token}`,
-
         },
       }
-
       );
     }
     catch {
-
     }
   }
+
   UpdateProyeccion = async (form) => {
-
     try {
-
       await axios.put(
         url + "Director/Proyeccion", form, {
         headers: {
           Authorization: `Bearer ${token}`,
-
         },
       }
-
       );
     }
     catch {
-
     }
   }
+
   listAgenda = async (id) => {
     try {
       const response = await axios.get(
@@ -352,7 +346,6 @@ class Conexion {
       );
       return response.data;
     } catch (error) {
-
     }
   }
 
@@ -368,8 +361,6 @@ class Conexion {
     } catch { }
   }
 
-
-
   GetServicios = async () => {
     try {
       const response = await axios.get(url + "servicios/", {
@@ -383,16 +374,13 @@ class Conexion {
     }
   }
 
-
   CreateVenta = async (form) => {
-
     const response = await axios.post(url + "ventas/", form, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
-
   }
 
   ObtenerIdCotizacion = async (form) => {
@@ -414,7 +402,6 @@ class Conexion {
   }
 
   updateAgenda = async (id, form) => {
-
     const response = await axios.put(url + "agenda/" + id, form, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -422,22 +409,22 @@ class Conexion {
     });
     return response.data;
   }
+
   updateAgendaDetalle = async (id, form) => {
     await axios.put(url + "agenda-detalle/" + id, form, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-
     });
   }
 
   logOutRegister = async () => {
     try {
       const token = localStorage.getItem('token');
-      const profile = JSON.parse(localStorage.getItem('profile'));
+      const profile = safeJSONParse('profile', {});
 
-      await axios.post(`${url}logout-log/${profile.ID_User}`,
-        { userName: profile.Nombre },  // Enviamos el nombre del perfil
+      await axios.post(`${url}logout-log/${profile.ID_User || ''}`,
+        { userName: profile.Nombre || '' },
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -464,8 +451,6 @@ class Conexion {
     }
   };
 
-
-
   ListServiciosByCliente = async (id) => {
     try {
       if (id.length > 15) {
@@ -484,7 +469,6 @@ class Conexion {
     }
   }
 
-
   DeleteServicioCliente = async (form) => {
     try {
       await axios.post(url + "delete-servicios-by-cliente", form, {
@@ -497,6 +481,7 @@ class Conexion {
       return [];
     }
   }
+
   CreateServicioCliente = async (form) => {
     try {
       const response = await axios.post(url + "serviciosbycliente/", form, {
@@ -510,18 +495,46 @@ class Conexion {
   }
 
   GetTotalProyeccion = async (id) => {
-
-
     const response = await axios.get(url + "totalproyeccion/" + id, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
     return response
-
   }
 
+  forgotPassword = async (userData) => {
+    try {
+      const response = await axios.post(url + "forget-password", userData);
+      return response;
+    } catch (error) {
+      console.error("Error en la llamada a la API 'forgotPassword':", error);
+      throw error;
+    }
+  };
 
+  resetPassword = async (data) => {
+    try {
+      const response = await fetch(`${url}reset-password`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        return { success: true, message: result.message };
+      } else {
+        return { success: false, message: result.message };
+      }
+    } catch (error) {
+      console.error('Error al restablecer contraseña:', error);
+      return { success: false, message: 'Error de conexión' };
+    }
+  };
 }
 
 export default new Conexion();
